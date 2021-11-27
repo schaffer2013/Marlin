@@ -705,7 +705,7 @@
 
 //#define X_DUAL_STEPPER_DRIVERS
 #if ENABLED(X_DUAL_STEPPER_DRIVERS)
-  #define INVERT_X2_VS_X_DIR    // Enable if X2 direction signal is opposite to X
+  //#define INVERT_X2_VS_X_DIR    // Enable if X2 direction signal is opposite to X
   #define X_DUAL_ENDSTOPS
   #if ENABLED(X_DUAL_ENDSTOPS)
     #define X2_USE_ENDSTOP _XMAX_
