@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 #pragma once
@@ -29,111 +29,82 @@
 
 #define LPC1768_IS_SKRV1_3
 #define USES_DIAG_JUMPERS
-
-//
-// Trinamic Stallguard pins
-//
-#define X_DIAG_PIN                         P1_29  // X-
-#define Y_DIAG_PIN                         P1_27  // Y-
-#define Z_DIAG_PIN                         P1_25  // Z-
-#define E0_DIAG_PIN                        P1_28  // X+
-#define E1_DIAG_PIN                        P1_26  // Y+
-
-//
-// Limit Switches
-//
-#ifdef X_STALL_SENSITIVITY
-  #define X_STOP_PIN                  X_DIAG_PIN
-  #if X_HOME_TO_MIN
-    #define X_MAX_PIN                      P1_28  // X+
-  #else
-    #define X_MIN_PIN                      P1_28  // X+
-  #endif
-#else
-  #define X_MIN_PIN                        P1_29  // X-
-  #define X_MAX_PIN                        P1_28  // X+
-#endif
-
-#ifdef Y_STALL_SENSITIVITY
-  #define Y_STOP_PIN                  Y_DIAG_PIN
-  #if Y_HOME_TO_MIN
-    #define Y_MAX_PIN                      P1_26  // Y+
-  #else
-    #define Y_MIN_PIN                      P1_26  // Y+
-  #endif
-#else
-  #define Y_MIN_PIN                        P1_27  // Y-
-  #define Y_MAX_PIN                        P1_26  // Y+
-#endif
-
-#ifdef Z_STALL_SENSITIVITY
-  #define Z_STOP_PIN                  Z_DIAG_PIN
-  #if Z_HOME_TO_MIN
-    #define Z_MAX_PIN                      P1_24  // Z+
-  #else
-    #define Z_MIN_PIN                      P1_24  // Z+
-  #endif
-#else
-  #define Z_MIN_PIN                        P1_25  // Z-
-  #define Z_MAX_PIN                        P1_24  // Z+
-#endif
-
-#define ONBOARD_ENDSTOPPULLUPS                    // Board has built-in pullups
+// Ignore temp readings during development.
+//#define BOGUS_TEMPERATURE_GRACE_PERIOD 2000
 
 //
 // Servos
 //
-#ifndef SERVO0_PIN
-  #define SERVO0_PIN                       P2_00
-#endif
+#define SERVO0_PIN         P2_00
+
+//
+// Limit Switches
+//
+#define X_MIN_PIN          P1_29
+#define X_MAX_PIN          P1_28
+#define Y_MIN_PIN          P1_27
+#define Y_MAX_PIN          P1_26
+#define Z_MIN_PIN          P1_25
+#define Z_MAX_PIN          P1_24
+
 
 //
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                  P1_24
+  #define Z_MIN_PROBE_PIN  P1_24
 #endif
 
 //
 // Filament Runout Sensor
 //
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                   P1_28
+  #define FIL_RUNOUT_PIN   P1_28
 #endif
 
 //
 // Steppers
 //
-#define X_STEP_PIN                         P2_02
-#define X_DIR_PIN                          P2_06
-#define X_ENABLE_PIN                       P2_01
+#define X_STEP_PIN         P2_02
+#define X_DIR_PIN          P2_06
+#define X_ENABLE_PIN       P2_01
 #ifndef X_CS_PIN
-  #define X_CS_PIN                         P1_17
+  #define X_CS_PIN         P1_17
 #endif
 
-#define Y_STEP_PIN                         P0_19
-#define Y_DIR_PIN                          P0_20
-#define Y_ENABLE_PIN                       P2_08
+#define Y_STEP_PIN         P0_19
+#define Y_DIR_PIN          P0_20
+#define Y_ENABLE_PIN       P2_08
 #ifndef Y_CS_PIN
-  #define Y_CS_PIN                         P1_15
+  #define Y_CS_PIN         P1_15
 #endif
 
-#define Z_STEP_PIN                         P0_22
-#define Z_DIR_PIN                          P2_11
-#define Z_ENABLE_PIN                       P0_21
+#define Z_STEP_PIN         P0_22
+#define Z_DIR_PIN          P2_11
+#define Z_ENABLE_PIN       P0_21
 #ifndef Z_CS_PIN
-  #define Z_CS_PIN                         P1_10
+  #define Z_CS_PIN         P1_10
 #endif
 
-#define E0_STEP_PIN                        P2_13
-#define E0_DIR_PIN                         P0_11
-#define E0_ENABLE_PIN                      P2_12
+#define E0_STEP_PIN        P2_05 // // Pin assignents for BED on board IOT move it out of the way.
+#define E0_DIR_PIN         P2_05
+#define E0_ENABLE_PIN      P2_05
 #ifndef E0_CS_PIN
-  #define E0_CS_PIN                        P1_08
+  #define E0_CS_PIN        P2_05
 #endif
 
+#define E1_STEP_PIN        P2_13 // Pin assignents for E0 on board for Y2(R)
+#define E1_DIR_PIN         P0_11
+#define E1_ENABLE_PIN      P2_12
 #ifndef E1_CS_PIN
-  #define E1_CS_PIN                        P1_01
+  #define E1_CS_PIN        P1_08
+#endif
+
+#define E2_STEP_PIN        P0_01 // Pin assignments for E1 on board for Z2(R)
+#define E2_DIR_PIN         P0_00
+#define E2_ENABLE_PIN      P0_10
+#ifndef E2_CS_PIN
+  #define E2_CS_PIN        P1_01
 #endif
 
 //
@@ -141,13 +112,13 @@
 //
 #if ENABLED(TMC_USE_SW_SPI)
   #ifndef TMC_SW_MOSI
-    #define TMC_SW_MOSI                    P4_28
+    #define TMC_SW_MOSI    P4_28
   #endif
   #ifndef TMC_SW_MISO
-    #define TMC_SW_MISO                    P0_05
+    #define TMC_SW_MISO    P0_05
   #endif
   #ifndef TMC_SW_SCK
-    #define TMC_SW_SCK                     P0_04
+    #define TMC_SW_SCK     P0_04
   #endif
 #endif
 
@@ -170,20 +141,20 @@
   //#define E3_HARDWARE_SERIAL Serial1
   //#define E4_HARDWARE_SERIAL Serial1
 
-  #define X_SERIAL_TX_PIN                  P4_29
-  #define X_SERIAL_RX_PIN                  P1_17
+  #define X_SERIAL_TX_PIN  P4_29
+  #define X_SERIAL_RX_PIN  P1_17
 
-  #define Y_SERIAL_TX_PIN                  P1_16
-  #define Y_SERIAL_RX_PIN                  P1_15
+  #define Y_SERIAL_TX_PIN  P1_16
+  #define Y_SERIAL_RX_PIN  P1_15
 
-  #define Z_SERIAL_TX_PIN                  P1_14
-  #define Z_SERIAL_RX_PIN                  P1_10
+  #define Z_SERIAL_TX_PIN  P1_14
+  #define Z_SERIAL_RX_PIN  P1_10
 
-  #define E0_SERIAL_TX_PIN                 P1_09
-  #define E0_SERIAL_RX_PIN                 P1_08
+  //#define E0_SERIAL_TX_PIN P1_09
+  //#define E0_SERIAL_RX_PIN P1_08
 
-  #define E1_SERIAL_TX_PIN                 P1_04
-  #define E1_SERIAL_RX_PIN                 P1_01
+  #define E1_SERIAL_TX_PIN P1_09 // E0 pins moved to this E1. Thanks @jeffeb3 for the tip!!!!
+  #define E1_SERIAL_RX_PIN P1_08
 
   // Reduce baud rate to improve software serial reliability
   #define TMC_BAUD_RATE                    19200
@@ -259,7 +230,7 @@
 
     #error "CAUTION! WYH_L12864 requires wiring modifications. Comment out this line to continue."
 
-    /**
+/**
      * 1. Cut the tab off the LCD connector so it can be plugged into the "EXP1" connector the other way.
      * 2. Swap the LCD's +5V (Pin2) and GND (Pin1) wires. (This is the critical part!)
      * 3. Swap the LCD's MOSI (Pin9) and empty (Pin10) wires because Pin9 is open drain.
@@ -277,7 +248,7 @@
      *            MOSI | 9 10 |              open | 9 10 | MOSI
      *                  ------                     ------
      *                   LCD                        LCD
-     */
+ */
     #define BTN_EN1                  EXP1_06_PIN
     #define BTN_EN2                  EXP1_04_PIN
     #define BTN_ENC                  EXP1_08_PIN
@@ -390,10 +361,10 @@
       #define DOGLCD_SCK             EXP2_09_PIN
       #define DOGLCD_MOSI            EXP2_05_PIN
 
-      #define LCD_BACKLIGHT_PIN            -1
+      #define LCD_BACKLIGHT_PIN -1
 
-      #define FORCE_SOFT_SPI                      // Use this if default of hardware SPI causes display problems
-                                                  //   results in LCD soft SPI mode 3, SD soft SPI mode 0
+      #define FORCE_SOFT_SPI      // Use this if default of hardware SPI causes display problems
+                                  //   results in LCD soft SPI mode 3, SD soft SPI mode 0
 
       #define LCD_RESET_PIN          EXP1_06_PIN  // Must be high or open for LCD to operate normally.
 
@@ -411,7 +382,7 @@
         #define NEOPIXEL_PIN         EXP1_05_PIN
       #endif
 
-    #else                                         // !FYSETC_MINI_12864
+    #else // !FYSETC_MINI_12864
 
       #if ENABLED(MKS_MINI_12864)
 
@@ -452,7 +423,7 @@
 
         #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
           #define BTN_ENC_EN         LCD_PINS_D7  // Detect the presence of the encoder
-        #endif
+  #endif
 
       #endif
 
