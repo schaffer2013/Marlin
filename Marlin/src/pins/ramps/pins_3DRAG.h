@@ -62,8 +62,13 @@
 //
 // Heaters / Fans
 //
+<<<<<<< HEAD
 #define RAMPS_D8_PIN                           9
 #define RAMPS_D9_PIN                           8
+=======
+#define MOSFET_B_PIN                           8
+#define MOSFET_C_PIN                           9
+>>>>>>> bugfix-2.0.x
 #define MOSFET_D_PIN                          12
 
 //
@@ -166,7 +171,11 @@
 
 #endif // IS_ULTRA_LCD && IS_NEWPANEL
 
+<<<<<<< HEAD
 #if ENABLED(U8GLIB_ST7920)
+=======
+#if IS_U8GLIB_ST7920
+>>>>>>> bugfix-2.0.x
   #define BOARD_ST7920_DELAY_1                 0
   #define BOARD_ST7920_DELAY_2               188
   #define BOARD_ST7920_DELAY_3                 0

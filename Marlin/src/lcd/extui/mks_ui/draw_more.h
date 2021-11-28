@@ -22,12 +22,16 @@
 #pragma once
 
 #ifdef __cplusplus
+<<<<<<< HEAD:Marlin/src/lcd/extui/mks_ui/draw_more.h
   extern "C" { /* C-declarations for C++ */
+=======
+  extern "C" {
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/mks_ui/draw_more.h
 #endif
 
 void lv_draw_more();
 void lv_clear_more();
 
 #ifdef __cplusplus
-} /* C-declarations for C++ */
+  }
 #endif

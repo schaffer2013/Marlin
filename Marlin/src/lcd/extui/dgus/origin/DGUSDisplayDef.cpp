@@ -57,7 +57,11 @@ const uint16_t VPList_Main[] PROGMEM = {
 const uint16_t VPList_Temp[] PROGMEM = {
   #if HAS_HOTEND
     VP_T_E0_Is, VP_T_E0_Set,
+<<<<<<< HEAD:Marlin/src/lcd/extui/dgus/origin/DGUSDisplayDef.cpp
     #if HOTENDS >= 2
+=======
+    #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/dgus/origin/DGUSDisplayDef.cpp
       VP_T_E1_Is, VP_T_E1_Set,
     #endif
   #endif
@@ -71,7 +75,11 @@ const uint16_t VPList_Status[] PROGMEM = {
   // VP_M117, for completeness, but it cannot be auto-uploaded
   #if HAS_HOTEND
     VP_T_E0_Is, VP_T_E0_Set,
+<<<<<<< HEAD:Marlin/src/lcd/extui/dgus/origin/DGUSDisplayDef.cpp
     #if HOTENDS >= 2
+=======
+    #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/dgus/origin/DGUSDisplayDef.cpp
       VP_T_E1_Is, VP_T_E1_Set,
     #endif
   #endif
@@ -92,7 +100,11 @@ const uint16_t VPList_Status2[] PROGMEM = {
   // VP_M117, for completeness, but it cannot be auto-uploaded
   #if HAS_HOTEND
     VP_Flowrate_E0,
+<<<<<<< HEAD:Marlin/src/lcd/extui/dgus/origin/DGUSDisplayDef.cpp
     #if HOTENDS >= 2
+=======
+    #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/dgus/origin/DGUSDisplayDef.cpp
       VP_Flowrate_E1,
     #endif
   #endif
@@ -182,7 +194,11 @@ const struct DGUS_VP_Variable ListOfVP[] PROGMEM = {
       VPHELPER(VP_E0_FILAMENT_LOAD_UNLOAD, nullptr, ScreenHandler.HandleFilamentOption, ScreenHandler.HandleFilamentLoadUnload),
     #endif
   #endif
+<<<<<<< HEAD:Marlin/src/lcd/extui/dgus/origin/DGUSDisplayDef.cpp
   #if HOTENDS >= 2
+=======
+  #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/dgus/origin/DGUSDisplayDef.cpp
     VPHELPER(VP_T_E1_Is, &thermalManager.temp_hotend[1].celsius, nullptr, ScreenHandler.DGUSLCD_SendFloatAsLongValueToDisplay<0>),
     VPHELPER(VP_T_E1_Set, &thermalManager.temp_hotend[1].target, ScreenHandler.HandleTemperatureChanged, ScreenHandler.DGUSLCD_SendWordValueToDisplay),
     VPHELPER(VP_Flowrate_E1, nullptr, ScreenHandler.HandleFlowRateChanged, ScreenHandler.DGUSLCD_SendWordValueToDisplay),
@@ -237,7 +253,11 @@ const struct DGUS_VP_Variable ListOfVP[] PROGMEM = {
   VPHELPER(VP_Z_STEP_PER_MM, &planner.settings.axis_steps_per_mm[Z_AXIS], ScreenHandler.HandleStepPerMMChanged, ScreenHandler.DGUSLCD_SendFloatAsIntValueToDisplay<1>),
   #if HAS_HOTEND
     VPHELPER(VP_E0_STEP_PER_MM, &planner.settings.axis_steps_per_mm[E_AXIS_N(0)], ScreenHandler.HandleStepPerMMExtruderChanged, ScreenHandler.DGUSLCD_SendFloatAsIntValueToDisplay<1>),
+<<<<<<< HEAD:Marlin/src/lcd/extui/dgus/origin/DGUSDisplayDef.cpp
     #if HOTENDS >= 2
+=======
+    #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/dgus/origin/DGUSDisplayDef.cpp
       VPHELPER(VP_E1_STEP_PER_MM, &planner.settings.axis_steps_per_mm[E_AXIS_N(1)], ScreenHandler.HandleStepPerMMExtruderChanged, ScreenHandler.DGUSLCD_SendFloatAsIntValueToDisplay<1>),
     #endif
   #endif

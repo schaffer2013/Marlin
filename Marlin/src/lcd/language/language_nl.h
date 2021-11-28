@@ -54,7 +54,11 @@ namespace Language_nl {
   LSTR MSG_SET_HOME_OFFSETS               = _UxGT("Zet home offsets");
   LSTR MSG_HOME_OFFSETS_APPLIED           = _UxGT("H offset toegep.");
   LSTR MSG_SET_ORIGIN                     = _UxGT("Nulpunt instellen");
+<<<<<<< HEAD
   #if PREHEAT_COUNT
+=======
+  #if HAS_PREHEAT
+>>>>>>> bugfix-2.0.x
     LSTR MSG_PREHEAT_1                    = PREHEAT_1_LABEL _UxGT(" voorverwarmen");
     LSTR MSG_PREHEAT_1_H                  = PREHEAT_1_LABEL _UxGT(" voorverw. ~");
     LSTR MSG_PREHEAT_1_END                = PREHEAT_1_LABEL _UxGT(" voorverw. Einde");

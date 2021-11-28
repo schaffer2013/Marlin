@@ -48,6 +48,7 @@
 
 #if HAS_MAX31865 && !USE_ADAFRUIT_MAX31865
 
+<<<<<<< HEAD
 //#include <SoftwareSPI.h> // TODO: switch to SPIclass/SoftSPI
 #include "MAX31865.h"
 
@@ -62,6 +63,19 @@ SPISettings MAX31865::spiConfig = SPISettings(
   #endif
   , MSBFIRST
   , SPI_MODE_1 // CPOL0 CPHA1
+=======
+#include "MAX31865.h"
+
+#ifdef TARGET_LPC1768
+  #include <SoftwareSPI.h>
+#endif
+
+// The maximum speed the MAX31865 can do is 5 MHz
+SPISettings MAX31865::spiConfig = SPISettings(
+  TERN(TARGET_LPC1768, SPI_QUARTER_SPEED, TERN(ARDUINO_ARCH_STM32, SPI_CLOCK_DIV4, 500000)),
+  MSBFIRST,
+  SPI_MODE1 // CPOL0 CPHA1
+>>>>>>> bugfix-2.0.x
 );
 
 #ifndef LARGE_PINMAP
@@ -93,7 +107,11 @@ SPISettings MAX31865::spiConfig = SPISettings(
     _sclk = _miso = _mosi = -1;
   }
 
+<<<<<<< HEAD
 #else
+=======
+#else // LARGE_PINMAP
+>>>>>>> bugfix-2.0.x
 
   /**
    * Create the interface object using software (bitbang) SPI for PIN values
@@ -106,9 +124,13 @@ SPISettings MAX31865::spiConfig = SPISettings(
    * @param spi_clk      the SPI clock pin to use
    * @param pin_mapping  set to 1 for positive pin values
    */
+<<<<<<< HEAD
   MAX31865::MAX31865(uint32_t spi_cs, uint32_t spi_mosi,
                      uint32_t spi_miso, uint32_t spi_clk,
                      uint8_t pin_mapping) {
+=======
+  MAX31865::MAX31865(uint32_t spi_cs, uint32_t spi_mosi, uint32_t spi_miso, uint32_t spi_clk, uint8_t pin_mapping) {
+>>>>>>> bugfix-2.0.x
     _cs = spi_cs;
     _mosi = spi_mosi;
     _miso = spi_miso;
@@ -130,14 +152,20 @@ SPISettings MAX31865::spiConfig = SPISettings(
 
 #endif // LARGE_PINMAP
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> bugfix-2.0.x
 /**
  *
  * Instance & Class methods
  *
  */
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> bugfix-2.0.x
 /**
  * Initialize the SPI interface and set the number of RTD wires used
  *
@@ -152,6 +180,7 @@ void MAX31865::begin(max31865_numwires_t wires, float zero, float ref) {
   OUT_WRITE(_cs, HIGH);
 
   if (_sclk != TERN(LARGE_PINMAP, -1UL, -1)) {
+<<<<<<< HEAD
     // Define pin modes for Software SPI
     #ifdef MAX31865_DEBUG
       SERIAL_ECHOLN("Initializing MAX31865 Software SPI");
@@ -168,6 +197,15 @@ void MAX31865::begin(max31865_numwires_t wires, float zero, float ref) {
     #endif
 
     SPI.begin();
+=======
+    softSpiBegin(SPI_QUARTER_SPEED); // Define pin modes for Software SPI
+  }
+  else {
+    #ifdef MAX31865_DEBUG
+      SERIAL_ECHOLNPGM("Initializing MAX31865 Hardware SPI");
+    #endif
+    SPI.begin();    // Start and configure hardware SPI
+>>>>>>> bugfix-2.0.x
   }
 
   setWires(wires);
@@ -176,6 +214,7 @@ void MAX31865::begin(max31865_numwires_t wires, float zero, float ref) {
   clearFault();
 
   #ifdef MAX31865_DEBUG_SPI
+<<<<<<< HEAD
     #ifndef LARGE_PINMAP
       SERIAL_ECHOLNPGM(
         "Regular begin call with _cs: ", _cs,
@@ -195,6 +234,17 @@ void MAX31865::begin(max31865_numwires_t wires, float zero, float ref) {
     SERIAL_ECHOLNPGM("config: ", readRegister8(MAX31856_CONFIG_REG));
     SERIAL_EOL();
   #endif // MAX31865_DEBUG_SPI
+=======
+    SERIAL_ECHOLNPGM(
+      TERN(LARGE_PINMAP, "LARGE_PINMAP", "Regular")
+      " begin call with _cs: ", _cs,
+      " _miso: ", _miso,
+      " _sclk: ", _sclk,
+      " _mosi: ", _mosi,
+      " config: ", readRegister8(MAX31856_CONFIG_REG)
+    );
+  #endif
+>>>>>>> bugfix-2.0.x
 }
 
 /**
@@ -371,7 +421,10 @@ float MAX31865::temperature(float Rrtd) {
 // private:
 //
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> bugfix-2.0.x
 /**
  * Set a value in the configuration register.
  *
@@ -432,10 +485,22 @@ void MAX31865::readRegisterN(uint8_t addr, uint8_t buffer[], uint8_t n) {
     WRITE(_sclk, LOW);
 
   WRITE(_cs, LOW);
+<<<<<<< HEAD
   spixfer(addr);
 
   while (n--) {
     buffer[0] = spixfer(0xFF);
+=======
+
+  #ifdef TARGET_LPC1768
+    DELAY_CYCLES(_spi_speed);
+  #endif
+
+  spiTransfer(addr);
+
+  while (n--) {
+    buffer[0] = spiTransfer(0xFF);
+>>>>>>> bugfix-2.0.x
     #ifdef MAX31865_DEBUG_SPI
       SERIAL_ECHOLNPGM("buffer read ", n, " data: ", buffer[0]);
     #endif
@@ -462,8 +527,17 @@ void MAX31865::writeRegister8(uint8_t addr, uint8_t data) {
 
   WRITE(_cs, LOW);
 
+<<<<<<< HEAD
   spixfer(addr | 0x80); // make sure top bit is set
   spixfer(data);
+=======
+  #ifdef TARGET_LPC1768
+    DELAY_CYCLES(_spi_speed);
+  #endif
+
+  spiTransfer(addr | 0x80); // make sure top bit is set
+  spiTransfer(data);
+>>>>>>> bugfix-2.0.x
 
   if (_sclk == TERN(LARGE_PINMAP, -1UL, -1))
     SPI.endTransaction();
@@ -480,6 +554,7 @@ void MAX31865::writeRegister8(uint8_t addr, uint8_t data) {
  * @param  x  an 8-bit chunk of data to write
  * @return    the 8-bit response
  */
+<<<<<<< HEAD
 uint8_t MAX31865::spixfer(uint8_t x) {
   if (_sclk == TERN(LARGE_PINMAP, -1UL, -1))
     return SPI.transfer(x);
@@ -495,6 +570,40 @@ uint8_t MAX31865::spixfer(uint8_t x) {
   }
 
   return reply;
+=======
+uint8_t MAX31865::spiTransfer(uint8_t x) {
+  if (_sclk == TERN(LARGE_PINMAP, -1UL, -1))
+    return SPI.transfer(x);
+
+  #ifdef TARGET_LPC1768
+    return swSpiTransfer(x, _spi_speed, _sclk, _miso, _mosi);
+  #else
+    uint8_t reply = 0;
+    for (int i = 7; i >= 0; i--) {
+      WRITE(_sclk, HIGH);           DELAY_NS_VAR(_spi_delay);
+      reply <<= 1;
+      WRITE(_mosi, x & _BV(i));     DELAY_NS_VAR(_spi_delay);
+      if (READ(_miso)) reply |= 1;
+      WRITE(_sclk, LOW);            DELAY_NS_VAR(_spi_delay);
+    }
+    return reply;
+  #endif
+}
+
+void MAX31865::softSpiBegin(const uint8_t spi_speed) {
+  #ifdef MAX31865_DEBUG
+    SERIAL_ECHOLNPGM("Initializing MAX31865 Software SPI");
+  #endif
+  #ifdef TARGET_LPC1768
+    swSpiBegin(_sclk, _miso, _mosi);
+    _spi_speed = swSpiInit(spi_speed, _sclk, _mosi);
+  #else
+    _spi_delay = (100UL << spi_speed) / 3; // Calculate delay in ns. Top speed is ~10MHz, or 100ns delay between bits.
+    OUT_WRITE(_sclk, LOW);
+    SET_OUTPUT(_mosi);
+    SET_INPUT(_miso);
+  #endif
+>>>>>>> bugfix-2.0.x
 }
 
 #endif // HAS_MAX31865 && !USE_ADAFRUIT_MAX31865

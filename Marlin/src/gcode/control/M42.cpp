@@ -126,10 +126,17 @@ void GcodeSuite::M42() {
   extDigitalWrite(pin, pin_status);
 
   #ifdef ARDUINO_ARCH_STM32
+<<<<<<< HEAD
     // A simple I/O will be set to 0 by analogWrite()
     if (pin_status <= 1 && !PWM_PIN(pin)) return;
   #endif
   analogWrite(pin, pin_status);
+=======
+    // A simple I/O will be set to 0 by set_pwm_duty()
+    if (pin_status <= 1 && !PWM_PIN(pin)) return;
+  #endif
+  set_pwm_duty(pin, pin_status);
+>>>>>>> bugfix-2.0.x
 }
 
 #endif // DIRECT_PIN_CONTROL

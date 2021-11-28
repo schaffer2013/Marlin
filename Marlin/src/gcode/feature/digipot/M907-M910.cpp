@@ -100,7 +100,11 @@ void GcodeSuite::M907() {
 #if HAS_MOTOR_CURRENT_SPI || HAS_MOTOR_CURRENT_PWM
 
   void GcodeSuite::M907_report(const bool forReplay/*=true*/) {
+<<<<<<< HEAD
     report_heading_etc(forReplay, PSTR(STR_STEPPER_MOTOR_CURRENTS));
+=======
+    report_heading_etc(forReplay, F(STR_STEPPER_MOTOR_CURRENTS));
+>>>>>>> bugfix-2.0.x
     #if HAS_MOTOR_CURRENT_PWM
       SERIAL_ECHOLNPGM_P(                                    // PWM-based has 3 values:
           PSTR("  M907 X"), stepper.motor_current_setting[0]  // X and Y

@@ -67,7 +67,11 @@ void GcodeSuite::M710() {
 }
 
 void GcodeSuite::M710_report(const bool forReplay/*=true*/) {
+<<<<<<< HEAD
   report_heading_etc(forReplay, PSTR(STR_CONTROLLER_FAN));
+=======
+  report_heading_etc(forReplay, F(STR_CONTROLLER_FAN));
+>>>>>>> bugfix-2.0.x
   SERIAL_ECHOLNPGM("  M710"
     " S", int(controllerFan.settings.active_speed),
     " I", int(controllerFan.settings.idle_speed),

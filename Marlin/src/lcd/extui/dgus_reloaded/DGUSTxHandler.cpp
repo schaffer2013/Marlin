@@ -275,7 +275,11 @@ void DGUSTxHandler::TempMax(DGUS_VP &vp) {
     case DGUS_Addr::TEMP_Max_H0:
       temp = HEATER_0_MAXTEMP - HOTEND_OVERSHOOT;
       break;
+<<<<<<< HEAD
     #if HOTENDS > 1
+=======
+    #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x
       case DGUS_Addr::TEMP_Max_H1:
         temp = HEATER_1_MAXTEMP - HOTEND_OVERSHOOT;
         break;
@@ -428,7 +432,11 @@ void DGUSTxHandler::PIDKp(DGUS_VP &vp) {
       case DGUS_Data::Heater::H0:
         value = ExtUI::getPIDValues_Kp(ExtUI::E0);
         break;
+<<<<<<< HEAD
       #if HOTENDS > 1
+=======
+      #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x
         case DGUS_Data::Heater::H1:
           value = ExtUI::getPIDValues_Kp(ExtUI::E1);
           break;
@@ -454,7 +462,11 @@ void DGUSTxHandler::PIDKi(DGUS_VP &vp) {
       case DGUS_Data::Heater::H0:
         value = ExtUI::getPIDValues_Ki(ExtUI::E0);
         break;
+<<<<<<< HEAD
       #if HOTENDS > 1
+=======
+      #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x
         case DGUS_Data::Heater::H1:
           value = ExtUI::getPIDValues_Ki(ExtUI::E1);
           break;
@@ -480,7 +492,11 @@ void DGUSTxHandler::PIDKd(DGUS_VP &vp) {
       case DGUS_Data::Heater::H0:
         value = ExtUI::getPIDValues_Kd(ExtUI::E0);
         break;
+<<<<<<< HEAD
       #if HOTENDS > 1
+=======
+      #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x
         case DGUS_Data::Heater::H1:
           value = ExtUI::getPIDValues_Kd(ExtUI::E1);
           break;

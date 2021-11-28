@@ -28,7 +28,15 @@
 #define Z2_ENABLE_PIN                       PF3
 #define Z2_STEP_PIN                         PF5
 #define Z2_DIR_PIN                          PF1
+<<<<<<< HEAD
 
+=======
+#define Z2_STOP_PIN                         PA13
+
+#ifndef Z_MIN_PROBE_PIN
+  #define Z_MIN_PROBE_PIN                   PG9
+#endif
+>>>>>>> bugfix-2.0.x
 #ifndef FIL_RUNOUT2_PIN
   #define FIL_RUNOUT2_PIN                   PF13
 #endif

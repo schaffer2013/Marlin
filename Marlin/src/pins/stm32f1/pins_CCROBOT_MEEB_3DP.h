@@ -23,7 +23,11 @@
 
 #include "env_validate.h"
 
+<<<<<<< HEAD
 #if HOTENDS > 1 || E_STEPPERS > 1
+=======
+#if HAS_MULTI_HOTEND || E_STEPPERS > 1
+>>>>>>> bugfix-2.0.x
   #error "CCROBOT-ONLINE MEEB_3DP only supports one hotend / E-stepper. Comment out this line to continue."
 #endif
 
@@ -155,7 +159,11 @@
 #endif
 
 // Alter timing for graphical display
+<<<<<<< HEAD
 #if ENABLED(U8GLIB_ST7920)
+=======
+#if IS_U8GLIB_ST7920
+>>>>>>> bugfix-2.0.x
   #define BOARD_ST7920_DELAY_1               125
   #define BOARD_ST7920_DELAY_2               125
   #define BOARD_ST7920_DELAY_3               125

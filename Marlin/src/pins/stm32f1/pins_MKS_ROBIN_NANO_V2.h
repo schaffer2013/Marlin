@@ -36,6 +36,7 @@
 #define BOARD_INFO_NAME "MKS Robin nano V2.0"
 
 #define BOARD_NO_NATIVE_USB
+#define USES_DIAG_PINS
 
 // Avoid conflict with TIMER_SERVO when using the STM32 HAL
 #define TEMP_TIMER                             5
@@ -337,7 +338,11 @@
       #define BEEPER_PIN                    -1
     #endif
 
+<<<<<<< HEAD
   #elif ENABLED(MKS_MINI_12864_V3)
+=======
+  #elif ENABLED(FYSETC_MINI_12864_2_1)
+>>>>>>> bugfix-2.0.x
     #define DOGLCD_CS                       PD13
     #define DOGLCD_A0                       PC6
     #define LCD_PINS_DC                DOGLCD_A0
@@ -365,7 +370,11 @@
 
     #endif
 
+<<<<<<< HEAD
     #if ENABLED(U8GLIB_ST7920)
+=======
+    #if IS_U8GLIB_ST7920
+>>>>>>> bugfix-2.0.x
       #define BOARD_ST7920_DELAY_1           125
       #define BOARD_ST7920_DELAY_2           125
       #define BOARD_ST7920_DELAY_3           125

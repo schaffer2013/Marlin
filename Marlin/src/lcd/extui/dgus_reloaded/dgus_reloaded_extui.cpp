@@ -46,7 +46,11 @@ namespace ExtUI {
     }
   }
 
+<<<<<<< HEAD
   void onPrinterKilled(PGM_P error, PGM_P component) {
+=======
+  void onPrinterKilled(FSTR_P const error, FSTR_P const component) {
+>>>>>>> bugfix-2.0.x
     dgus_screen_handler.PrinterKilled(error, component);
   }
 

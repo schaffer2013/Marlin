@@ -68,13 +68,21 @@ bool DGUSSetupHandler::LevelingMenu() {
   ExtUI::setLevelingActive(dgus_screen_handler.leveling_active);
 
   if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
     return false;
   }
 
   if (ExtUI::isPositionKnown()) {
     if (ExtUI::getAxisPosition_mm(ExtUI::Z) < 10.0f) {
+<<<<<<< HEAD
       queue.enqueue_now_P(PSTR("G0Z10"));
+=======
+      queue.enqueue_now(F("G0Z10"));
+>>>>>>> bugfix-2.0.x
     }
 
     return true;
@@ -99,7 +107,11 @@ bool DGUSSetupHandler::LevelingManual() {
   }
 
   if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
     return false;
   }
 
@@ -118,20 +130,32 @@ bool DGUSSetupHandler::LevelingOffset() {
   dgus_screen_handler.offset_steps = DGUS_Data::StepSize::MMP1;
 
   if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
     return false;
   }
 
   if (ExtUI::isPositionKnown()) {
     if (ExtUI::getAxisPosition_mm(ExtUI::Z) < 4.0f) {
+<<<<<<< HEAD
       queue.enqueue_now_P(PSTR("G0Z4"));
+=======
+      queue.enqueue_now(F("G0Z4"));
+>>>>>>> bugfix-2.0.x
     }
 
     char buffer[20];
     snprintf_P(buffer, sizeof(buffer), PSTR("G0X%dY%d"), DGUS_LEVEL_CENTER_X, DGUS_LEVEL_CENTER_Y);
 
     queue.enqueue_one_now(buffer);
+<<<<<<< HEAD
     queue.enqueue_now_P(PSTR("G0Z0"));
+=======
+    queue.enqueue_now(F("G0Z0"));
+>>>>>>> bugfix-2.0.x
 
     return true;
   }
@@ -175,7 +199,11 @@ bool DGUSSetupHandler::Move() {
   dgus_screen_handler.move_steps = DGUS_Data::StepSize::MM10;
 
   if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
     return false;
   }
 
@@ -186,7 +214,11 @@ bool DGUSSetupHandler::Gcode() {
   ZERO(dgus_screen_handler.gcode);
 
   if (dgus_display.gui_version < 0x30 || dgus_display.os_version < 0x21) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_FW_OUTDATED);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_FW_OUTDATED));
+>>>>>>> bugfix-2.0.x
     return false;
   }
 

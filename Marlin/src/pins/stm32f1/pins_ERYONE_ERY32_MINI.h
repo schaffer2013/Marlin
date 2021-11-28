@@ -54,7 +54,11 @@
 
 //
 // Limit Switches
+<<<<<<< HEAD
 // 
+=======
+//
+>>>>>>> bugfix-2.0.x
 #define X_STOP_PIN                          PD8
 #define Y_STOP_PIN                          PD15
 #define Z_MIN_PIN                           PA11
@@ -173,7 +177,11 @@
   #define LCD_PINS_D5                       PE7
   #define LCD_PINS_D6                       PB2
   #define LCD_PINS_D7                       PB1
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> bugfix-2.0.x
   #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
     #define BTN_ENC_EN               LCD_PINS_D7  // Detect the presence of the encoder
   #endif

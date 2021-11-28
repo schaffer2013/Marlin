@@ -40,7 +40,11 @@
 #endif
 
 #if ENABLED(POWER_LOSS_RECOVERY)
+<<<<<<< HEAD:Marlin/src/lcd/extui/dgus/mks/DGUSDisplayDef.cpp
   #include "../../../../../feature/powerloss.h"
+=======
+  #include "../../../../feature/powerloss.h"
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/dgus/mks/DGUSDisplayDef.cpp
 #endif
 
 #if ENABLED(DGUS_UI_MOVE_DIS_OPTION)
@@ -122,7 +126,11 @@ const uint16_t VPList_Main[] PROGMEM = {
   // VP_M117, for completeness, but it cannot be auto-uploaded.
   #if HAS_HOTEND
     MKSLIST_E_ITEM(0) VP_E0_STATUS,
+<<<<<<< HEAD:Marlin/src/lcd/extui/dgus/mks/DGUSDisplayDef.cpp
     #if HOTENDS >= 2
+=======
+    #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/dgus/mks/DGUSDisplayDef.cpp
       MKSLIST_E_ITEM(1) VP_E1_STATUS,
     #endif
   #endif
@@ -567,7 +575,11 @@ const struct DGUS_VP_Variable ListOfVP[] PROGMEM = {
     #endif
   #endif
 
+<<<<<<< HEAD:Marlin/src/lcd/extui/dgus/mks/DGUSDisplayDef.cpp
   #if HOTENDS >= 2
+=======
+  #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/dgus/mks/DGUSDisplayDef.cpp
     VPHELPER(VP_T_E1_Is, &thermalManager.temp_hotend[1].celsius, nullptr, ScreenHandler.DGUSLCD_SendFloatAsLongValueToDisplay<0>),
     VPHELPER(VP_T_E1_Set, &thermalManager.temp_hotend[1].target, ScreenHandler.HandleTemperatureChanged, ScreenHandler.DGUSLCD_SendWordValueToDisplay),
     VPHELPER(VP_Flowrate_E1, &planner.flow_percentage[ExtUI::extruder_t::E1], ScreenHandler.HandleFlowRateChanged, ScreenHandler.DGUSLCD_SendWordValueToDisplay),
@@ -656,7 +668,11 @@ const struct DGUS_VP_Variable ListOfVP[] PROGMEM = {
 
   #if HAS_HOTEND
     VPHELPER(VP_E0_MAX_SPEED, &planner.settings.max_feedrate_mm_s[E_AXIS_N(0)], ScreenHandler.HandleExtruderMaxSpeedChange_MKS, ScreenHandler.DGUSLCD_SendFloatAsIntValueToDisplay<0>),
+<<<<<<< HEAD:Marlin/src/lcd/extui/dgus/mks/DGUSDisplayDef.cpp
     #if HOTENDS >= 2
+=======
+    #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/dgus/mks/DGUSDisplayDef.cpp
       VPHELPER(VP_E1_MAX_SPEED, &planner.settings.max_feedrate_mm_s[E_AXIS_N(1)], ScreenHandler.HandleExtruderMaxSpeedChange_MKS, ScreenHandler.DGUSLCD_SendFloatAsIntValueToDisplay<0>),
     #endif
   #endif
@@ -667,7 +683,11 @@ const struct DGUS_VP_Variable ListOfVP[] PROGMEM = {
 
   #if HAS_HOTEND
     VPHELPER(VP_E0_ACC_MAX_SPEED, (uint16_t *)&planner.settings.max_acceleration_mm_per_s2[E_AXIS_N(0)], ScreenHandler.HandleExtruderAccChange_MKS, ScreenHandler.DGUSLCD_SendWordValueToDisplay),
+<<<<<<< HEAD:Marlin/src/lcd/extui/dgus/mks/DGUSDisplayDef.cpp
     #if HOTENDS >= 2
+=======
+    #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/dgus/mks/DGUSDisplayDef.cpp
       VPHELPER(VP_E1_ACC_MAX_SPEED, (uint16_t *)&planner.settings.max_acceleration_mm_per_s2[E_AXIS_N(1)], ScreenHandler.HandleExtruderAccChange_MKS, ScreenHandler.DGUSLCD_SendWordValueToDisplay),
     #endif
   #endif
@@ -744,7 +764,11 @@ const struct DGUS_VP_Variable ListOfVP[] PROGMEM = {
 
   #if HAS_HOTEND
     VPHELPER(VP_E0_STEP_PER_MM, &planner.settings.axis_steps_per_mm[E_AXIS_N(0)], ScreenHandler.HandleStepPerMMExtruderChanged_MKS, ScreenHandler.DGUSLCD_SendFloatAsIntValueToDisplay<0>),
+<<<<<<< HEAD:Marlin/src/lcd/extui/dgus/mks/DGUSDisplayDef.cpp
     #if HOTENDS >= 2
+=======
+    #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/dgus/mks/DGUSDisplayDef.cpp
       VPHELPER(VP_E1_STEP_PER_MM, &planner.settings.axis_steps_per_mm[E_AXIS_N(1)], ScreenHandler.HandleStepPerMMExtruderChanged_MKS, ScreenHandler.DGUSLCD_SendFloatAsIntValueToDisplay<0>),
     #endif
   #endif

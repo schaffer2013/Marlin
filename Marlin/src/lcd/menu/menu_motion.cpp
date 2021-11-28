@@ -210,7 +210,7 @@ void _menu_move_distance(const AxisEnum axis, const screenFunc_t func, const int
         ui.goto_screen([]{
           MenuItem_confirm::select_screen(
             GET_TEXT(MSG_BUTTON_PROCEED), GET_TEXT(MSG_BACK),
-            _goto_menu_move_distance_e, ui.goto_previous_screen,
+            _goto_menu_move_distance_e, nullptr,
             GET_TEXT(MSG_HOTEND_TOO_COLD), (const char *)nullptr, PSTR("!")
           );
         });
@@ -329,6 +329,7 @@ void menu_move() {
     BACK_ITEM(MSG_MOTION);
 
     GCODES_ITEM(MSG_AUTO_HOME, G28_STR);
+<<<<<<< HEAD
     GCODES_ITEM(MSG_AUTO_HOME_X, PSTR("G28X"));
     #if HAS_Y_AXIS
       GCODES_ITEM(MSG_AUTO_HOME_Y, PSTR("G28Y"));
@@ -344,6 +345,23 @@ void menu_move() {
     #endif
     #if LINEAR_AXES >= 6
       GCODES_ITEM(MSG_AUTO_HOME_K, PSTR("G28" AXIS6_STR));
+=======
+    GCODES_ITEM_N(X_AXIS, MSG_AUTO_HOME_A, PSTR("G28X"));
+    #if HAS_Y_AXIS
+      GCODES_ITEM_N(Y_AXIS, MSG_AUTO_HOME_A, PSTR("G28Y"));
+    #endif
+    #if HAS_Z_AXIS
+      GCODES_ITEM_N(Z_AXIS, MSG_AUTO_HOME_A, PSTR("G28Z"));
+    #endif
+    #if LINEAR_AXES >= 4
+      GCODES_ITEM_N(I_AXIS, MSG_AUTO_HOME_A, PSTR("G28" AXIS4_STR));
+    #endif
+    #if LINEAR_AXES >= 5
+      GCODES_ITEM_N(J_AXIS, MSG_AUTO_HOME_A, PSTR("G28" AXIS5_STR));
+    #endif
+    #if LINEAR_AXES >= 6
+      GCODES_ITEM_N(K_AXIS, MSG_AUTO_HOME_A, PSTR("G28" AXIS6_STR));
+>>>>>>> bugfix-2.0.x
     #endif
 
     END_MENU();
@@ -382,6 +400,7 @@ void menu_motion() {
   #else
     GCODES_ITEM(MSG_AUTO_HOME, G28_STR);
     #if ENABLED(INDIVIDUAL_AXIS_HOMING_MENU)
+<<<<<<< HEAD
       GCODES_ITEM(MSG_AUTO_HOME_X, PSTR("G28X"));
       #if HAS_Y_AXIS
         GCODES_ITEM(MSG_AUTO_HOME_Y, PSTR("G28Y"));
@@ -397,6 +416,23 @@ void menu_motion() {
       #endif
       #if LINEAR_AXES >= 6
         GCODES_ITEM(MSG_AUTO_HOME_K, PSTR("G28" AXIS6_STR));
+=======
+      GCODES_ITEM_N(X_AXIS, MSG_AUTO_HOME_A, PSTR("G28X"));
+      #if HAS_Y_AXIS
+        GCODES_ITEM_N(Y_AXIS, MSG_AUTO_HOME_A, PSTR("G28Y"));
+      #endif
+      #if HAS_Z_AXIS
+        GCODES_ITEM_N(Z_AXIS, MSG_AUTO_HOME_A, PSTR("G28Z"));
+      #endif
+      #if LINEAR_AXES >= 4
+        GCODES_ITEM_N(I_AXIS, MSG_AUTO_HOME_A, PSTR("G28" AXIS4_STR));
+      #endif
+      #if LINEAR_AXES >= 5
+        GCODES_ITEM_N(J_AXIS, MSG_AUTO_HOME_A, PSTR("G28" AXIS5_STR));
+      #endif
+      #if LINEAR_AXES >= 6
+        GCODES_ITEM_N(K_AXIS, MSG_AUTO_HOME_A, PSTR("G28" AXIS6_STR));
+>>>>>>> bugfix-2.0.x
       #endif
     #endif
   #endif

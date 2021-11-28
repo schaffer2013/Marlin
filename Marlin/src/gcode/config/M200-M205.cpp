@@ -76,7 +76,11 @@
 
   void GcodeSuite::M200_report(const bool forReplay/*=true*/) {
     if (!forReplay) {
+<<<<<<< HEAD
       report_heading(forReplay, PSTR(STR_FILAMENT_SETTINGS), false);
+=======
+      report_heading(forReplay, F(STR_FILAMENT_SETTINGS), false);
+>>>>>>> bugfix-2.0.x
       if (!parser.volumetric_enabled) SERIAL_ECHOPGM(" (Disabled):");
       SERIAL_EOL();
       report_echo_start(forReplay);
@@ -133,7 +137,11 @@ void GcodeSuite::M201() {
 }
 
 void GcodeSuite::M201_report(const bool forReplay/*=true*/) {
+<<<<<<< HEAD
   report_heading_etc(forReplay, PSTR(STR_MAX_ACCELERATION));
+=======
+  report_heading_etc(forReplay, F(STR_MAX_ACCELERATION));
+>>>>>>> bugfix-2.0.x
   SERIAL_ECHOLNPGM_P(
     LIST_N(DOUBLE(LINEAR_AXES),
       PSTR("  M201 X"), LINEAR_UNIT(planner.settings.max_acceleration_mm_per_s2[X_AXIS]),
@@ -178,7 +186,11 @@ void GcodeSuite::M203() {
 }
 
 void GcodeSuite::M203_report(const bool forReplay/*=true*/) {
+<<<<<<< HEAD
   report_heading_etc(forReplay, PSTR(STR_MAX_FEEDRATES));
+=======
+  report_heading_etc(forReplay, F(STR_MAX_FEEDRATES));
+>>>>>>> bugfix-2.0.x
   SERIAL_ECHOLNPGM_P(
     LIST_N(DOUBLE(LINEAR_AXES),
       PSTR("  M203 X"), LINEAR_UNIT(planner.settings.max_feedrate_mm_s[X_AXIS]),
@@ -224,7 +236,11 @@ void GcodeSuite::M204() {
 }
 
 void GcodeSuite::M204_report(const bool forReplay/*=true*/) {
+<<<<<<< HEAD
   report_heading_etc(forReplay, PSTR(STR_ACCELERATION_P_R_T));
+=======
+  report_heading_etc(forReplay, F(STR_ACCELERATION_P_R_T));
+>>>>>>> bugfix-2.0.x
   SERIAL_ECHOLNPGM_P(
       PSTR("  M204 P"), LINEAR_UNIT(planner.settings.acceleration)
     , PSTR(" R"), LINEAR_UNIT(planner.settings.retract_acceleration)
@@ -285,7 +301,11 @@ void GcodeSuite::M205() {
 }
 
 void GcodeSuite::M205_report(const bool forReplay/*=true*/) {
+<<<<<<< HEAD
   report_heading_etc(forReplay, PSTR(
+=======
+  report_heading_etc(forReplay, F(
+>>>>>>> bugfix-2.0.x
     "Advanced (B<min_segment_time_us> S<min_feedrate> T<min_travel_feedrate>"
     TERN_(HAS_JUNCTION_DEVIATION, " J<junc_dev>")
     TERN_(HAS_CLASSIC_JERK, " X<max_x_jerk> Y<max_y_jerk> Z<max_z_jerk>")

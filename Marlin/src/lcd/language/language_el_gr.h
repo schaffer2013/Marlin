@@ -54,7 +54,11 @@ namespace Language_el_gr {
   LSTR MSG_SET_HOME_OFFSETS               = _UxGT("Ορισμός βασικών μετατοπίσεων");
   LSTR MSG_HOME_OFFSETS_APPLIED           = _UxGT("Εφαρμόστηκαν οι μετατοπίσεις");
   LSTR MSG_SET_ORIGIN                     = _UxGT("Ορισμός προέλευσης");
+<<<<<<< HEAD
   #if PREHEAT_COUNT
+=======
+  #if HAS_PREHEAT
+>>>>>>> bugfix-2.0.x
     LSTR MSG_PREHEAT_1                    = _UxGT("Προθέρμανση ") PREHEAT_1_LABEL;
     LSTR MSG_PREHEAT_1_H                  = _UxGT("Προθέρμανση ") PREHEAT_1_LABEL " ~";
     LSTR MSG_PREHEAT_1_END                = _UxGT("Προθέρμανση ") PREHEAT_1_LABEL _UxGT(" End");

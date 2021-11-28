@@ -165,7 +165,11 @@
       #define KILL_PIN                        10
       #define BEEPER_PIN                      27
 
+<<<<<<< HEAD
     #elif ENABLED(U8GLIB_ST7920)                  // SPI GLCD 12864 ST7920 ( like [www.digole.com] ) For Melzi V2.0
+=======
+    #elif IS_U8GLIB_ST7920                  // SPI GLCD 12864 ST7920 ( like [www.digole.com] ) For Melzi V2.0
+>>>>>>> bugfix-2.0.x
 
       #if IS_MELZI
         #define LCD_PINS_RS                   30  // CS chip select /SS chip slave select

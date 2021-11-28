@@ -60,7 +60,11 @@ void SpinnerDialogBox::onRefresh() {
 void SpinnerDialogBox::onRedraw(draw_mode_t) {
 }
 
+<<<<<<< HEAD:Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/spinner_dialog_box.cpp
 void SpinnerDialogBox::show(FSTR_P message) {
+=======
+void SpinnerDialogBox::show(FSTR_P fstr) {
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/ftdi_eve_touch_ui/screens/spinner_dialog_box.cpp
   CommandProcessor cmd;
   if (AT_SCREEN(SpinnerDialogBox)) cmd.stop().execute();
   cmd.cmd(CMD_DLSTART)
@@ -68,7 +72,11 @@ void SpinnerDialogBox::show(FSTR_P message) {
      .cmd(CLEAR(true,true,true))
      .cmd(COLOR_RGB(bg_text_enabled))
      .tag(0);
+<<<<<<< HEAD:Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/spinner_dialog_box.cpp
   draw_text_box(cmd, BTN_POS(1,1), BTN_SIZE(2,3), message, OPT_CENTER, font_large);
+=======
+  draw_text_box(cmd, BTN_POS(1,1), BTN_SIZE(2,3), fstr, OPT_CENTER, font_large);
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/ftdi_eve_touch_ui/screens/spinner_dialog_box.cpp
   DLCache dlcache(SPINNER_CACHE);
   if (!dlcache.store(SPINNER_DL_SIZE)) {
     SERIAL_ECHO_MSG("CachedScreen::storeBackground() failed: not enough DL cache space");
@@ -86,6 +94,7 @@ void SpinnerDialogBox::hide() {
   GOTO_PREVIOUS();
 }
 
+<<<<<<< HEAD:Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/spinner_dialog_box.cpp
 void SpinnerDialogBox::enqueueAndWait(FSTR_P message, FSTR_P commands) {
   show(message);
   ExtUI::injectCommands_P((const char*)commands);
@@ -94,12 +103,26 @@ void SpinnerDialogBox::enqueueAndWait(FSTR_P message, FSTR_P commands) {
 
 void SpinnerDialogBox::enqueueAndWait(FSTR_P message, char *commands) {
   show(message);
+=======
+void SpinnerDialogBox::enqueueAndWait(FSTR_P fstr, FSTR_P commands) {
+  show(fstr);
+  ExtUI::injectCommands(commands);
+  mydata.auto_hide = true;
+}
+
+void SpinnerDialogBox::enqueueAndWait(FSTR_P fstr, char *commands) {
+  show(fstr);
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/ftdi_eve_touch_ui/screens/spinner_dialog_box.cpp
   ExtUI::injectCommands(commands);
   mydata.auto_hide = true;
 }
 
 void SpinnerDialogBox::onIdle() {
+<<<<<<< HEAD:Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/spinner_dialog_box.cpp
   if (mydata.auto_hide && !commandsInQueue() && TERN1(HOST_KEEPALIVE_FEATURE, GcodeSuite::busy_state == GcodeSuite::NOT_BUSY)) {
+=======
+  if (mydata.auto_hide && !commandsInQueue() && TERN1(HOST_KEEPALIVE_FEATURE, gcode.busy_state == gcode.NOT_BUSY)) {
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/ftdi_eve_touch_ui/screens/spinner_dialog_box.cpp
     mydata.auto_hide = false;
     hide();
   }

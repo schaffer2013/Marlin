@@ -56,7 +56,11 @@ namespace Language_an {
   LSTR MSG_SET_HOME_OFFSETS               = _UxGT("Achustar desfases");
   LSTR MSG_HOME_OFFSETS_APPLIED           = _UxGT("Desfase aplicau");
   LSTR MSG_SET_ORIGIN                     = _UxGT("Establir orichen");
+<<<<<<< HEAD
   #if PREHEAT_COUNT
+=======
+  #if HAS_PREHEAT
+>>>>>>> bugfix-2.0.x
     LSTR MSG_PREHEAT_1                    = _UxGT("Precalentar ") PREHEAT_1_LABEL;
     LSTR MSG_PREHEAT_1_H                  = _UxGT("Precalentar ") PREHEAT_1_LABEL " ~";
     LSTR MSG_PREHEAT_1_END                = _UxGT("Precal. ") PREHEAT_1_LABEL _UxGT(" Boquilla");

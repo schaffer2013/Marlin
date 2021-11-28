@@ -42,6 +42,7 @@ namespace Language_el {
   LSTR MSG_BACK                           = _UxGT("Πίσω");
   LSTR MSG_ADVANCED_SETTINGS              = _UxGT("Προχωρημένες ρυθμίσεις");
   LSTR MSG_CONFIGURATION                  = _UxGT("Διαμόρφωση");
+<<<<<<< HEAD
 
   LSTR MSG_MEDIA_INSERTED                 = _UxGT("Κάρτα εισήχθη");
   LSTR MSG_MEDIA_REMOVED                  = _UxGT("Κάρτα αφαιρέθη");
@@ -74,6 +75,40 @@ namespace Language_el {
     LSTR MSG_PREHEAT_1_BEDONLY            = _UxGT("Προθέρμανση ") PREHEAT_1_LABEL _UxGT(" bed"); //SHORTEN
     LSTR MSG_PREHEAT_1_SETTINGS           = _UxGT("Προθέρμανση ") PREHEAT_1_LABEL _UxGT(" επιβεβαίωση"); //SHORTEN
 
+=======
+
+  LSTR MSG_MEDIA_INSERTED                 = _UxGT("Κάρτα εισήχθη");
+  LSTR MSG_MEDIA_REMOVED                  = _UxGT("Κάρτα αφαιρέθη");
+  LSTR MSG_MEDIA_WAITING                  = _UxGT("Αναμονή για κάρτα");
+  LSTR MSG_MEDIA_ABORTING                 = _UxGT("Ματαίωση...");
+  LSTR MSG_MEDIA_READ_ERROR               = MEDIA_TYPE_EN _UxGT(" σφάλμα ανάγνωσης");
+  LSTR MSG_MEDIA_USB_REMOVED              = _UxGT("USB αφαιρέθη");
+  LSTR MSG_MEDIA_USB_FAILED               = _UxGT("Αποτυχία εκκίνησης USB");
+  LSTR MSG_SD_INIT_FAIL                   = _UxGT("Αποτυχία αρχικοποίησης SD");
+  LSTR MSG_MAIN                           = _UxGT("Αρχική Οθόνη");
+  LSTR MSG_RUN_AUTO_FILES                 = _UxGT("Αυτόματη εκκίνηση");
+  LSTR MSG_DISABLE_STEPPERS               = _UxGT("Απενεργοποίηση μοτέρ");
+  LSTR MSG_AUTO_HOME                      = _UxGT("Αυτόμ. επαναφορά XYZ");
+  LSTR MSG_AUTO_HOME_X                    = _UxGT("Επαναφορά X");
+  LSTR MSG_AUTO_HOME_Y                    = _UxGT("Επαναφορά Y");
+  LSTR MSG_AUTO_HOME_Z                    = _UxGT("Επαναφορά Z");
+  LSTR MSG_LEVEL_BED_HOMING               = _UxGT("Αυτόμ. επαναφορά XYZ");
+  LSTR MSG_LEVEL_BED_WAITING              = _UxGT("Πιέστε για έναρξη");
+  LSTR MSG_LEVEL_BED_NEXT_POINT           = _UxGT("Επόμενο σημείο");
+  LSTR MSG_LEVEL_BED_DONE                 = _UxGT("Τέλος επιπεδοποίησης!");
+  LSTR MSG_SET_HOME_OFFSETS               = _UxGT("Ορισμός μετατοπίσεων");
+  LSTR MSG_HOME_OFFSETS_APPLIED           = _UxGT("Εφαρμογή μετατοπίσεων");
+  LSTR MSG_SET_ORIGIN                     = _UxGT("Ορισμός προέλευσης");
+  #if HAS_PREHEAT
+    LSTR MSG_PREHEAT_1                    = _UxGT("Προθέρμανση ") PREHEAT_1_LABEL;
+    LSTR MSG_PREHEAT_1_H                  = _UxGT("Προθέρμανση ") PREHEAT_1_LABEL " ~";
+    LSTR MSG_PREHEAT_1_END                = _UxGT("Προθέρμανση ") PREHEAT_1_LABEL _UxGT(" End");
+    LSTR MSG_PREHEAT_1_END_E              = _UxGT("Προθέρμανση ") PREHEAT_1_LABEL _UxGT(" End ~");
+    LSTR MSG_PREHEAT_1_ALL                = _UxGT("Προθέρμανση ") PREHEAT_1_LABEL _UxGT(" όλα");
+    LSTR MSG_PREHEAT_1_BEDONLY            = _UxGT("Προθέρμανση ") PREHEAT_1_LABEL _UxGT(" bed"); //SHORTEN
+    LSTR MSG_PREHEAT_1_SETTINGS           = _UxGT("Προθέρμανση ") PREHEAT_1_LABEL _UxGT(" επιβεβαίωση"); //SHORTEN
+
+>>>>>>> bugfix-2.0.x
     LSTR MSG_PREHEAT_M                    = _UxGT("Προθέρμανση $");
     LSTR MSG_PREHEAT_M_H                  = _UxGT("Προθέρμανση $ ~");
     LSTR MSG_PREHEAT_M_END                = _UxGT("Προθέρμανση $ End");

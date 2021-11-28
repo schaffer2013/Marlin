@@ -27,7 +27,7 @@
 
 #if NOT_TARGET(__STM32F1__, STM32F1xx)
   #error "Oops! Select a STM32F1 board in 'Tools > Board.'"
-#elif HOTENDS > 1 || E_STEPPERS > 1
+#elif HAS_MULTI_HOTEND || E_STEPPERS > 1
   #error "Longer3D only supports one hotend / E-stepper. Comment out this line to continue."
 #endif
 
@@ -89,9 +89,16 @@
 #define HEATER_BED_PIN                      PA8   // pin 67 (Hot Bed Mosfet)
 
 #define FAN_PIN                             PA15  // pin 77 (4cm Fan)
-#define FAN_SOFT_PWM                              // Required to avoid issues with heating or STLink
-#define FAN_MIN_PWM                           35  // Fan will not start in 1-30 range
-#define FAN_MAX_PWM                          255
+#ifdef MAPLE_STM32F1
+  #define FAN_SOFT_PWM                            // Required to avoid issues with heating or STLink
+  #define FAN_MIN_PWM                         35  // Fan will not start in 1-30 range
+  #define FAN_MAX_PWM                        255
+#else
+  #define FAST_PWM_FAN                            // STM32 Variant allow TIMER2 Hardware PWM
+  #define FAST_PWM_FAN_FREQUENCY           31400  // This frequency allow a good range, fan starts at 3%, half noise at 50%
+  #define FAN_MIN_PWM                          5
+  #define FAN_MAX_PWM                        255
+#endif
 
 //#define BEEPER_PIN                        PD13  // pin 60 (Servo PWM output 5V/GND on Board V0G+) made for BL-Touch sensor
                                                   // Can drive a PC Buzzer, if connected between PWM and 5V pins
@@ -129,6 +136,7 @@
   #define FSMC_RS_PIN                       PD11  // pin 58 A16 Register. Only one address needed
   #define FSMC_DMA_DEV                      DMA2
   #define FSMC_DMA_CHANNEL               DMA_CH5
+<<<<<<< HEAD
 
   #define TFT_CS_PIN                 FSMC_CS_PIN
   #define TFT_RS_PIN                 FSMC_RS_PIN
@@ -140,6 +148,19 @@
   #define DOGLCD_MOSI                       -1    // Prevent auto-define by Conditionals_post.h
   #define DOGLCD_SCK                        -1
 
+=======
+
+  #define TFT_CS_PIN                 FSMC_CS_PIN
+  #define TFT_RS_PIN                 FSMC_RS_PIN
+
+  #define TFT_RESET_PIN                     PC4   // pin 33
+  #define TFT_BACKLIGHT_PIN                 PD12  // pin 59
+  #define TFT_BACKLIGHT_PWM                 150   // Brightness with alt. TIM4 chan 1 (1-255)
+
+  #define DOGLCD_MOSI                       -1    // Prevent auto-define by Conditionals_post.h
+  #define DOGLCD_SCK                        -1
+
+>>>>>>> bugfix-2.0.x
   // Buffer for Color UI
   #define TFT_BUFFER_SIZE                   3200
 #endif

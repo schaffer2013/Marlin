@@ -68,7 +68,11 @@ namespace Language_pt_br {
   LSTR MSG_SET_HOME_OFFSETS               = _UxGT("Compensar origem");
   LSTR MSG_HOME_OFFSETS_APPLIED           = _UxGT("Alteração aplicada");
   LSTR MSG_SET_ORIGIN                     = _UxGT("Ajustar Origem");
+<<<<<<< HEAD
   #if PREHEAT_COUNT
+=======
+  #if HAS_PREHEAT
+>>>>>>> bugfix-2.0.x
     LSTR MSG_PREHEAT_1                    = _UxGT("Pre-aquecer ") PREHEAT_1_LABEL;
     LSTR MSG_PREHEAT_1_H                  = _UxGT("Pre-aquecer ") PREHEAT_1_LABEL " ~";
     LSTR MSG_PREHEAT_1_END                = _UxGT("Extrusora ") PREHEAT_1_LABEL;
@@ -111,9 +115,14 @@ namespace Language_pt_br {
   LSTR MSG_IDEX_MODE_DUPLICATE            = _UxGT("Duplicação");
   LSTR MSG_IDEX_MODE_MIRRORED_COPY        = _UxGT("Cópia espelhada");
   LSTR MSG_IDEX_MODE_FULL_CTRL            = _UxGT("Controle Total");
+<<<<<<< HEAD
   LSTR MSG_HOTEND_OFFSET_X                = _UxGT("2o bico X");
   LSTR MSG_HOTEND_OFFSET_Y                = _UxGT("2o bico Y");
   LSTR MSG_HOTEND_OFFSET_Z                = _UxGT("2o bico Z");
+=======
+  LSTR MSG_HOTEND_OFFSET_Z                = _UxGT("2o bico Z");
+  LSTR MSG_HOTEND_OFFSET_A                = _UxGT("2o bico @");
+>>>>>>> bugfix-2.0.x
   LSTR MSG_UBL_DOING_G29                  = _UxGT("Executando G29");
   LSTR MSG_UBL_TOOLS                      = _UxGT("Ferramentas UBL");
   LSTR MSG_UBL_LEVEL_BED                  = _UxGT("Nivel. Mesa Unif.");
@@ -134,7 +143,11 @@ namespace Language_pt_br {
   LSTR MSG_UBL_DONE_EDITING_MESH          = _UxGT("Fim da Edição");
   LSTR MSG_UBL_BUILD_CUSTOM_MESH          = _UxGT("Montar Malha Custom");
   LSTR MSG_UBL_BUILD_MESH_MENU            = _UxGT("Montar ");
+<<<<<<< HEAD
   #if PREHEAT_COUNT
+=======
+  #if HAS_PREHEAT
+>>>>>>> bugfix-2.0.x
     LSTR MSG_UBL_BUILD_MESH_M             = _UxGT("Montar $");
     LSTR MSG_UBL_VALIDATE_MESH_M          = _UxGT("Checar $");
   #endif

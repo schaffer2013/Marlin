@@ -65,7 +65,11 @@ void GcodeSuite::M603() {
 }
 
 void GcodeSuite::M603_report(const bool forReplay/*=true*/) {
+<<<<<<< HEAD
   report_heading(forReplay, PSTR(STR_FILAMENT_LOAD_UNLOAD));
+=======
+  report_heading(forReplay, F(STR_FILAMENT_LOAD_UNLOAD));
+>>>>>>> bugfix-2.0.x
 
   #if EXTRUDERS == 1
     report_echo_start(forReplay);

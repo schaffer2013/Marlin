@@ -43,6 +43,7 @@ namespace Language_ru {
   LSTR MSG_MEDIA_INSERTED                   = _UxGT("SD карта вставлена");
   LSTR MSG_MEDIA_REMOVED                    = _UxGT("SD карта извлечена");
   LSTR MSG_MEDIA_WAITING                    = _UxGT("Вставьте SD карту");
+<<<<<<< HEAD
   #if LCD_WIDTH > 21
     LSTR MSG_SD_INIT_FAIL                   = _UxGT("Сбой инициализации SD");
   #else
@@ -168,6 +169,133 @@ namespace Language_ru {
     LSTR MSG_BED_TRAMMING_RAISE             = _UxGT("Вверх до сраб. зонда");
     LSTR MSG_BED_TRAMMING_IN_RANGE          = _UxGT("Углы в норме. Вырав.");
   #endif
+=======
+  #if LCD_WIDTH > 21
+    LSTR MSG_SD_INIT_FAIL                   = _UxGT("Сбой инициализации SD");
+  #else
+    LSTR MSG_SD_INIT_FAIL                   = _UxGT("Сбой инициализ. SD");
+  #endif
+  LSTR MSG_MEDIA_READ_ERROR                 = _UxGT("Ошибка считывания");
+  LSTR MSG_MEDIA_USB_REMOVED                = _UxGT("USB диск удалён");
+  LSTR MSG_MEDIA_USB_FAILED                 = _UxGT("Ошибка USB диска");
+  #if LCD_WIDTH > 21
+    LSTR MSG_KILL_SUBCALL_OVERFLOW          = _UxGT("Переполнение вызова");
+  #else
+    LSTR MSG_KILL_SUBCALL_OVERFLOW          = _UxGT("Переполн. вызова");
+  #endif
+  LSTR MSG_LCD_SOFT_ENDSTOPS                = _UxGT("Прогр. эндстопы");
+  LSTR MSG_LCD_ENDSTOPS                     = _UxGT("Эндстопы"); // Max length 8 characters
+  LSTR MSG_MAIN                             = _UxGT("Основное меню");
+  LSTR MSG_ADVANCED_SETTINGS                = _UxGT("Другие настройки");
+  LSTR MSG_CONFIGURATION                    = _UxGT("Конфигурация");
+  LSTR MSG_RUN_AUTO_FILES                   = _UxGT("Автостарт");
+  LSTR MSG_DISABLE_STEPPERS                 = _UxGT("Выключить двигатели");
+  LSTR MSG_DEBUG_MENU                       = _UxGT("Меню отладки");
+  LSTR MSG_PROGRESS_BAR_TEST                = _UxGT("Тест индикатора");
+  LSTR MSG_AUTO_HOME                        = _UxGT("Парковка XYZ");
+  LSTR MSG_AUTO_HOME_X                      = _UxGT("Парковка X");
+  LSTR MSG_AUTO_HOME_Y                      = _UxGT("Парковка Y");
+  LSTR MSG_AUTO_HOME_Z                      = _UxGT("Парковка Z");
+  LSTR MSG_AUTO_HOME_I                      = _UxGT("Парковка ") LCD_STR_I;
+  LSTR MSG_AUTO_HOME_J                      = _UxGT("Парковка ") LCD_STR_J;
+  LSTR MSG_AUTO_HOME_K                      = _UxGT("Парковка ") LCD_STR_K;
+  LSTR MSG_AUTO_Z_ALIGN                     = _UxGT("Авто Z-выравнивание");
+  LSTR MSG_ITERATION                        = _UxGT("G34 Итерация: %i");
+  LSTR MSG_DECREASING_ACCURACY              = _UxGT("Уменьшение точности!");
+  LSTR MSG_ACCURACY_ACHIEVED                = _UxGT("Точность достигнута");
+  LSTR MSG_LEVEL_BED_HOMING                 = _UxGT("Нулевое положение");
+  LSTR MSG_LEVEL_BED_WAITING                = _UxGT("Нажмите чтобы начать");
+  LSTR MSG_LEVEL_BED_NEXT_POINT             = _UxGT("Следующая точка");
+  LSTR MSG_LEVEL_BED_DONE                   = _UxGT("Выравнивание готово!");
+  LSTR MSG_Z_FADE_HEIGHT                    = _UxGT("Высота спада");
+  #if LCD_WIDTH > 21
+    LSTR MSG_SET_HOME_OFFSETS               = _UxGT("Установ. смещения дома");
+    LSTR MSG_HOME_OFFSET_X                  = _UxGT("Смещение дома X");
+    LSTR MSG_HOME_OFFSET_Y                  = _UxGT("Смещение дома Y");
+    LSTR MSG_HOME_OFFSET_Z                  = _UxGT("Смещение дома Z");
+    LSTR MSG_HOME_OFFSET_I                  = _UxGT("Смещение дома ") LCD_STR_I;
+    LSTR MSG_HOME_OFFSET_J                  = _UxGT("Смещение дома ") LCD_STR_J;
+    LSTR MSG_HOME_OFFSET_K                  = _UxGT("Смещение дома ") LCD_STR_K;
+  #else
+    LSTR MSG_SET_HOME_OFFSETS               = _UxGT("Установ.смещ.дома");
+    LSTR MSG_HOME_OFFSET_X                  = _UxGT("Смещ. дома X");
+    LSTR MSG_HOME_OFFSET_Y                  = _UxGT("Смещ. дома Y");
+    LSTR MSG_HOME_OFFSET_Z                  = _UxGT("Смещ. дома Z");
+    LSTR MSG_HOME_OFFSET_I                  = _UxGT("Смещ. дома ") LCD_STR_I;
+    LSTR MSG_HOME_OFFSET_J                  = _UxGT("Смещ. дома ") LCD_STR_J;
+    LSTR MSG_HOME_OFFSET_K                  = _UxGT("Смещ. дома ") LCD_STR_K;
+  #endif
+  LSTR MSG_HOME_OFFSETS_APPLIED             = _UxGT("Смещения применены");
+  LSTR MSG_SET_ORIGIN                       = _UxGT("Установить ноль");
+  LSTR MSG_SELECT_ORIGIN                    = _UxGT("Выберите ноль");
+  #if LCD_WIDTH > 21
+    LSTR MSG_LAST_VALUE_SP                  = _UxGT("Последнее знач. ");
+  #else
+    LSTR MSG_LAST_VALUE_SP                  = _UxGT("Послед. знач. ");
+  #endif
+  #if HAS_PREHEAT
+    LSTR MSG_PREHEAT_1                      = _UxGT("Преднагрев ") PREHEAT_1_LABEL;
+    LSTR MSG_PREHEAT_1_H                    = _UxGT("Нагрев ") PREHEAT_1_LABEL " ~";
+    LSTR MSG_PREHEAT_1_END                  = _UxGT("Нагрев ") PREHEAT_1_LABEL _UxGT(" сопло");
+    LSTR MSG_PREHEAT_1_END_E                = _UxGT("Нагрев ") PREHEAT_1_LABEL _UxGT(" сопло ~");
+    LSTR MSG_PREHEAT_1_ALL                  = _UxGT("Нагрев ") PREHEAT_1_LABEL _UxGT(" всё");
+    LSTR MSG_PREHEAT_1_BEDONLY              = _UxGT("Нагрев ") PREHEAT_1_LABEL _UxGT(" стол");
+    LSTR MSG_PREHEAT_1_SETTINGS             = _UxGT("Нагрев ") PREHEAT_1_LABEL _UxGT(" правка");
+
+    LSTR MSG_PREHEAT_M                      = _UxGT("Преднагрев $");
+    LSTR MSG_PREHEAT_M_H                    = _UxGT("Нагрев $ ~");
+    LSTR MSG_PREHEAT_M_END                  = _UxGT("Нагрев $ сопло");
+    LSTR MSG_PREHEAT_M_END_E                = _UxGT("Нагрев $ сопло ~");
+    LSTR MSG_PREHEAT_M_ALL                  = _UxGT("Нагрев $ всё");
+    LSTR MSG_PREHEAT_M_BEDONLY              = _UxGT("Нагрев $ стол");
+    LSTR MSG_PREHEAT_M_SETTINGS             = _UxGT("Нагрев $ правка");
+  #endif
+  LSTR MSG_PREHEAT_CUSTOM                   = _UxGT("Нагрев Свой");
+  LSTR MSG_COOLDOWN                         = _UxGT("Охлаждение");
+  LSTR MSG_CUTTER_FREQUENCY                 = _UxGT("Частота");
+  LSTR MSG_LASER_MENU                       = _UxGT("Управление лазером");
+  #if LCD_WIDTH > 21
+    LSTR MSG_SPINDLE_MENU                   = _UxGT("Управление шпинделем");
+    LSTR MSG_LASER_TOGGLE                   = _UxGT("Переключить лазер");
+    LSTR MSG_SPINDLE_TOGGLE                 = _UxGT("Переключ.шпиндель");
+    LSTR MSG_SPINDLE_POWER                  = _UxGT("Мощность шпинделя");
+    LSTR MSG_LASER_POWER                    = _UxGT("Мощность лазера");
+    LSTR MSG_LASER_PULSE_MS                 = _UxGT("Тестовый импульс мс");
+    LSTR MSG_LASER_EVAC_TOGGLE              = _UxGT("Переключить обдув");
+    LSTR MSG_SPINDLE_EVAC_TOGGLE            = _UxGT("Переключить вакуум");
+  #else
+    LSTR MSG_SPINDLE_MENU                   = _UxGT("Управление шпинд.");
+    LSTR MSG_LASER_TOGGLE                   = _UxGT("Переключ.лазер");
+    LSTR MSG_SPINDLE_TOGGLE                 = _UxGT("Переключ.шпинд");
+    LSTR MSG_SPINDLE_POWER                  = _UxGT("Мощн.шпинделя");
+    LSTR MSG_LASER_POWER                    = _UxGT("Мощн. лазера");
+    LSTR MSG_LASER_PULSE_MS                 = _UxGT("Тест. имп. мс");
+    LSTR MSG_LASER_EVAC_TOGGLE              = _UxGT("Переключ. обдув");
+    LSTR MSG_SPINDLE_EVAC_TOGGLE            = _UxGT("Переключ. вакуум");
+  #endif
+  LSTR MSG_LASER_ASSIST_TOGGLE              = _UxGT("Управление обдувом");
+  LSTR MSG_FLOWMETER_FAULT                  = _UxGT("Ошибка обдува");
+  LSTR MSG_LASER_FIRE_PULSE                 = _UxGT("Импульс лазера");
+  LSTR MSG_SPINDLE_FORWARD                  = _UxGT("Шпиндель вперёд");
+  LSTR MSG_SPINDLE_REVERSE                  = _UxGT("Инверсия шпинделя");
+
+  LSTR MSG_SWITCH_PS_ON                     = _UxGT("Включить питание");
+  LSTR MSG_SWITCH_PS_OFF                    = _UxGT("Выключить питание");
+  LSTR MSG_EXTRUDE                          = _UxGT("Экструзия");
+  LSTR MSG_RETRACT                          = _UxGT("Втягивание");
+  LSTR MSG_MOVE_AXIS                        = _UxGT("Движение по осям");
+  LSTR MSG_BED_LEVELING                     = _UxGT("Выравнивание стола");
+  LSTR MSG_LEVEL_BED                        = _UxGT("Выровнять стол");
+  LSTR MSG_BED_TRAMMING                     = _UxGT("Выровнять углы");
+  LSTR MSG_NEXT_CORNER                      = _UxGT("Следующий угол");
+  #if LCD_WIDTH > 21
+    LSTR MSG_BED_TRAMMING_RAISE             = _UxGT("Вверх до срабатыв. зонда");
+    LSTR MSG_BED_TRAMMING_IN_RANGE          = _UxGT("Углы в норме. Вырав.стола");
+  #else
+    LSTR MSG_BED_TRAMMING_RAISE             = _UxGT("Вверх до сраб. зонда");
+    LSTR MSG_BED_TRAMMING_IN_RANGE          = _UxGT("Углы в норме. Вырав.");
+  #endif
+>>>>>>> bugfix-2.0.x
   LSTR MSG_BED_TRAMMING_GOOD_POINTS         = _UxGT("Хорошие точки: ");
   LSTR MSG_BED_TRAMMING_LAST_Z              = _UxGT("Последняя Z: ");
   #if LCD_WIDTH > 21
@@ -197,9 +325,14 @@ namespace Language_ru {
   LSTR MSG_IDEX_MODE_FULL_CTRL              = _UxGT("Полный контроль");
   LSTR MSG_IDEX_DUPE_GAP                    = _UxGT("Дублировать X-зазор");
 
+<<<<<<< HEAD
   LSTR MSG_HOTEND_OFFSET_X                  = _UxGT("2-е сопло X");
   LSTR MSG_HOTEND_OFFSET_Y                  = _UxGT("2-е сопло Y");
   LSTR MSG_HOTEND_OFFSET_Z                  = _UxGT("2-е сопло Z");
+=======
+  LSTR MSG_HOTEND_OFFSET_Z                  = _UxGT("2-е сопло Z");
+  LSTR MSG_HOTEND_OFFSET_A                  = _UxGT("2-е сопло @");
+>>>>>>> bugfix-2.0.x
 
   LSTR MSG_UBL_DOING_G29                    = _UxGT("Выполняем G29");
   LSTR MSG_UBL_TOOLS                        = _UxGT("Инструменты UBL");

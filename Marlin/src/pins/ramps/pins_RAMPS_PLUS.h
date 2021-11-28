@@ -41,8 +41,13 @@
 
 #define BOARD_INFO_NAME "RAMPS 1.4 Plus"
 
+<<<<<<< HEAD
 #define RAMPS_D8_PIN                          10
 #define RAMPS_D10_PIN                          8
+=======
+#define MOSFET_A_PIN                           8
+#define MOSFET_C_PIN                          10
+>>>>>>> bugfix-2.0.x
 
 //
 // Steppers

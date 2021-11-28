@@ -305,7 +305,11 @@
 #endif
 
 // Alter timing for graphical display
+<<<<<<< HEAD
 #if ENABLED(U8GLIB_ST7920)
+=======
+#if IS_U8GLIB_ST7920
+>>>>>>> bugfix-2.0.x
   #define BOARD_ST7920_DELAY_1               200  // Tclk_fall <200ns
   #define BOARD_ST7920_DELAY_2               250  // Tdata_width >200ns
   #define BOARD_ST7920_DELAY_3               200  // Tclk_rise <200ns

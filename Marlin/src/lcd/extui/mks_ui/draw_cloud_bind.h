@@ -22,7 +22,11 @@
 #pragma once
 
 #ifdef __cplusplus
+<<<<<<< HEAD:Marlin/src/lcd/extui/mks_ui/draw_cloud_bind.h
   extern "C" { /* C-declarations for C++ */
+=======
+  extern "C" {
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/mks_ui/draw_cloud_bind.h
 #endif
 
 void lv_draw_cloud_bind();
@@ -33,5 +37,5 @@ void display_qrcode(uint8_t *qrcode_data);
 void cloud_unbind();
 
 #ifdef __cplusplus
-} /* C-declarations for C++ */
+  }
 #endif

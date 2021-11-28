@@ -64,7 +64,11 @@ namespace Language_vi {
   LSTR MSG_SET_HOME_OFFSETS               = _UxGT("Đặt bù đắp nhà");                       // Set home offsets
   LSTR MSG_HOME_OFFSETS_APPLIED           = _UxGT("Bù đắp được áp dụng");                  // Offsets applied
   LSTR MSG_SET_ORIGIN                     = _UxGT("Đặt nguồn gốc");                        // Set origin
+<<<<<<< HEAD
   #if PREHEAT_COUNT
+=======
+  #if HAS_PREHEAT
+>>>>>>> bugfix-2.0.x
     LSTR MSG_PREHEAT_1                    = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" trước");      // Preheat
     LSTR MSG_PREHEAT_1_H                  = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" trước ~");    // Preheat
     LSTR MSG_PREHEAT_1_END                = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" Đầu");
@@ -126,7 +130,11 @@ namespace Language_vi {
   LSTR MSG_UBL_DONE_EDITING_MESH          = _UxGT("Chỉnh sửa xong lưới");                  // Done Editing Mesh
   LSTR MSG_UBL_BUILD_CUSTOM_MESH          = _UxGT("Xây dựng lưới tự chọn");                // Build Custom Mesh
   LSTR MSG_UBL_BUILD_MESH_MENU            = _UxGT("Xây dựng lưới");                        // Build Mesh
+<<<<<<< HEAD
   #if PREHEAT_COUNT
+=======
+  #if HAS_PREHEAT
+>>>>>>> bugfix-2.0.x
     LSTR MSG_UBL_BUILD_MESH_M             = _UxGT("Xây dựng lưới ($)");
     LSTR MSG_UBL_VALIDATE_MESH_M          = _UxGT("Thẩm tra lưới ($)");
   #endif

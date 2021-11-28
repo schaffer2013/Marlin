@@ -160,11 +160,19 @@ void MarlinUI::draw_kill_screen() {
 
   slen = utf8_strlen(S(GET_TEXT_F(MSG_HALTED)));
   lcd_moveto(cx - (slen / 2), cy);
+<<<<<<< HEAD
   lcd_put_u8str_P((const char*)GET_TEXT_F(MSG_HALTED));
 
   slen = utf8_strlen(S(GET_TEXT_F(MSG_HALTED)));
   lcd_moveto(cx - (slen / 2), cy + 1);
   lcd_put_u8str_P((const char*)GET_TEXT_F(MSG_HALTED));
+=======
+  lcd_put_u8str(GET_TEXT_F(MSG_HALTED));
+
+  slen = utf8_strlen(S(GET_TEXT_F(MSG_HALTED)));
+  lcd_moveto(cx - (slen / 2), cy + 1);
+  lcd_put_u8str(GET_TEXT_F(MSG_HALTED));
+>>>>>>> bugfix-2.0.x
 }
 
 //

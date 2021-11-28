@@ -89,7 +89,11 @@ namespace Language_hu {
   LSTR MSG_TRAMMING_WIZARD                = _UxGT("Elektromos varázsló");
   LSTR MSG_SELECT_ORIGIN                  = _UxGT("Eredeti választása");
   LSTR MSG_LAST_VALUE_SP                  = _UxGT("Utolsó érték ");
+<<<<<<< HEAD
   #if PREHEAT_COUNT
+=======
+  #if HAS_PREHEAT
+>>>>>>> bugfix-2.0.x
     LSTR MSG_PREHEAT_1                    = _UxGT("Fütés ") PREHEAT_1_LABEL;
     LSTR MSG_PREHEAT_1_H                  = _UxGT("Fütés ") PREHEAT_1_LABEL " ~";
     LSTR MSG_PREHEAT_1_END                = _UxGT("Fütés ") PREHEAT_1_LABEL _UxGT(" Fej");
@@ -156,9 +160,14 @@ namespace Language_hu {
   LSTR MSG_IDEX_MODE_MIRRORED_COPY        = _UxGT("Tükrözött másolás");
   LSTR MSG_IDEX_MODE_FULL_CTRL            = _UxGT("Teljes felügyelet");
   LSTR MSG_IDEX_DUPE_GAP                  = _UxGT("X-hézag másolása");
+<<<<<<< HEAD
   LSTR MSG_HOTEND_OFFSET_X                = _UxGT("2. fej X");
   LSTR MSG_HOTEND_OFFSET_Y                = _UxGT("2. fej Y");
   LSTR MSG_HOTEND_OFFSET_Z                = _UxGT("2. fej Z");
+=======
+  LSTR MSG_HOTEND_OFFSET_Z                = _UxGT("2. fej Z");
+  LSTR MSG_HOTEND_OFFSET_A                = _UxGT("2. fej @");
+>>>>>>> bugfix-2.0.x
   LSTR MSG_UBL_DOING_G29                  = _UxGT("Szintezz! G29");
   LSTR MSG_UBL_TOOLS                      = _UxGT("UBL eszköz");
   LSTR MSG_UBL_LEVEL_BED                  = _UxGT("Egységes ágy szint");

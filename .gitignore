@@ -27,7 +27,7 @@ bdf2u8g
 # OS
 #
 applet/
-*.DS_Store
+.DS_Store
 
 #
 # Misc
@@ -146,6 +146,10 @@ vc-fileutils.settings
 #Simulation
 imgui.ini
 eeprom.dat
+<<<<<<< HEAD
+=======
+spi_flash.bin
+>>>>>>> bugfix-2.0.x
 
 #cmake
 CMakeLists.txt
@@ -167,7 +171,3 @@ __pycache__
 
 # IOLogger logs
 *_log.csv
-
-# Simulation / Native
-eeprom.dat
-imgui.ini

@@ -90,6 +90,16 @@ private:
   static SPISettings spiConfig;
 
   TERN(LARGE_PINMAP, uint32_t, uint8_t) _sclk, _miso, _mosi, _cs;
+<<<<<<< HEAD
+=======
+
+  #ifdef TARGET_LPC1768
+    uint8_t _spi_speed;
+  #else
+    uint16_t _spi_delay;
+  #endif
+
+>>>>>>> bugfix-2.0.x
   float Rzero, Rref;
 
   void setConfig(uint8_t config, bool enable);
@@ -99,7 +109,13 @@ private:
   uint16_t readRegister16(uint8_t addr);
 
   void writeRegister8(uint8_t addr, uint8_t reg);
+<<<<<<< HEAD
   uint8_t spixfer(uint8_t addr);
+=======
+  uint8_t spiTransfer(uint8_t addr);
+
+  void softSpiBegin(const uint8_t spi_speed);
+>>>>>>> bugfix-2.0.x
 
 public:
   #ifdef LARGE_PINMAP

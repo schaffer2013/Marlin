@@ -48,7 +48,11 @@ namespace Language_da {
   LSTR MSG_SET_HOME_OFFSETS               = _UxGT("Sæt forsk. af home");
   LSTR MSG_HOME_OFFSETS_APPLIED           = _UxGT("Forsk. er nu aktiv");
   LSTR MSG_SET_ORIGIN                     = _UxGT("Sæt origin");
+<<<<<<< HEAD
   #if PREHEAT_COUNT
+=======
+  #if HAS_PREHEAT
+>>>>>>> bugfix-2.0.x
     LSTR MSG_PREHEAT_1                    = _UxGT("Forvarm ") PREHEAT_1_LABEL;
     LSTR MSG_PREHEAT_1_H                  = _UxGT("Forvarm ") PREHEAT_1_LABEL " ~";
     LSTR MSG_PREHEAT_1_END                = _UxGT("Forvarm ") PREHEAT_1_LABEL _UxGT(" end");

@@ -32,6 +32,10 @@
   #define TEMP_0_MISO_PIN                   PA6
   #define TEMP_0_MOSI_PIN                   PA7
   #define SOFTWARE_SPI                            // Max31865 and LCD SD share a set of SPIs, Set SD to softwareSPI for Max31865
+<<<<<<< HEAD
+=======
+  #define FORCE_SOFT_SPI
+>>>>>>> bugfix-2.0.x
 #else
   #define TEMP_0_PIN                        PF4   // TH0
 #endif

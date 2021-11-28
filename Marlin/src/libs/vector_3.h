@@ -69,6 +69,17 @@ struct vector_3 {
   // Operators
         float& operator[](const int n)       { return pos[n]; }
   const float& operator[](const int n) const { return pos[n]; }
+<<<<<<< HEAD
+
+  vector_3& operator*=(const float &v)  { x *= v; y *= v; z *= v; return *this; }
+  vector_3 operator+(const vector_3 &v) { return vector_3(x + v.x, y + v.y, z + v.z); }
+  vector_3 operator-(const vector_3 &v) { return vector_3(x - v.x, y - v.y, z - v.z); }
+  vector_3 operator*(const float &v)    { return vector_3(x * v, y * v, z * v); }
+
+  operator xy_float_t() { return xy_float_t({ x, y }); }
+  operator xyz_float_t() { return xyz_float_t({ x, y, z }); }
+=======
+>>>>>>> bugfix-2.0.x
 
   vector_3& operator*=(const float &v)  { x *= v; y *= v; z *= v; return *this; }
   vector_3 operator+(const vector_3 &v) { return vector_3(x + v.x, y + v.y, z + v.z); }
@@ -78,7 +89,7 @@ struct vector_3 {
   operator xy_float_t() { return xy_float_t({ x, y }); }
   operator xyz_float_t() { return xyz_float_t({ x, y, z }); }
 
-  void debug(PGM_P const title);
+  void debug(FSTR_P const title);
 };
 
 struct matrix_3x3 {
@@ -91,7 +102,7 @@ struct matrix_3x3 {
 
   void set_to_identity();
 
-  void debug(PGM_P const title);
+  void debug(FSTR_P const title);
 
   void apply_rotation_xyz(float &x, float &y, float &z);
 };

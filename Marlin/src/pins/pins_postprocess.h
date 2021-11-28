@@ -419,6 +419,9 @@
 #else
   #define X_STOP_PIN X_MAX_PIN
 #endif
+#if !defined(X2_USE_ENDSTOP) && ENABLED(X_DUAL_ENDSTOPS) && PIN_EXISTS(X_STOP)
+  #define X2_USE_ENDSTOP _XSTOP_
+#endif
 
 #if HAS_Y_AXIS
   #ifdef Y_STOP_PIN
@@ -437,6 +440,12 @@
     #define Y_STOP_PIN Y_MIN_PIN
   #else
     #define Y_STOP_PIN Y_MAX_PIN
+<<<<<<< HEAD
+=======
+  #endif
+  #if !defined(Y2_USE_ENDSTOP) && ENABLED(Y_DUAL_ENDSTOPS) && PIN_EXISTS(Y_STOP)
+    #define Y2_USE_ENDSTOP _YSTOP_
+>>>>>>> bugfix-2.0.x
   #endif
 #endif
 
@@ -457,6 +466,20 @@
     #define Z_STOP_PIN Z_MIN_PIN
   #else
     #define Z_STOP_PIN Z_MAX_PIN
+<<<<<<< HEAD
+=======
+  #endif
+  #if ENABLED(Z_MULTI_ENDSTOPS) && PIN_EXISTS(Z_STOP)
+    #ifndef Z2_USE_ENDSTOP
+      #define Z2_USE_ENDSTOP _ZSTOP_
+    #endif
+    #if NUM_Z_STEPPER_DRIVERS >= 3 && !defined(Z3_USE_ENDSTOP)
+      #define Z3_USE_ENDSTOP _ZSTOP_
+    #endif
+    #if NUM_Z_STEPPER_DRIVERS >= 4 && !defined(Z4_USE_ENDSTOP)
+      #define Z4_USE_ENDSTOP _ZSTOP_
+    #endif
+>>>>>>> bugfix-2.0.x
   #endif
 #endif
 
@@ -579,12 +602,20 @@
 #endif
 
 // The X2 axis, if any, should be the next open extruder port
+<<<<<<< HEAD
 #if EITHER(DUAL_X_CARRIAGE, X_DUAL_STEPPER_DRIVERS) && !defined(X2_DIAG_PIN) && !defined(X2_STEP_PIN) && !PIN_EXISTS(X2_CS_PIN)
+=======
+#if HAS_X2_STEPPER && !defined(X2_DIAG_PIN) && !defined(X2_STEP_PIN) && !PIN_EXISTS(X2_CS_PIN)
+>>>>>>> bugfix-2.0.x
   #define Y2_E_INDEX INCREMENT(X2_E_INDEX)
 #else
   #define Y2_E_INDEX X2_E_INDEX
 #endif
+<<<<<<< HEAD
 #if EITHER(DUAL_X_CARRIAGE, X_DUAL_STEPPER_DRIVERS)
+=======
+#if HAS_X2_STEPPER
+>>>>>>> bugfix-2.0.x
   #ifndef X2_STEP_PIN
     #define X2_STEP_PIN   _EPIN(X2_E_INDEX, STEP)
     #define X2_DIR_PIN    _EPIN(X2_E_INDEX, DIR)
@@ -801,7 +832,11 @@
     #endif
   #endif
   // Auto-assign pins for stallGuard sensorless homing
+<<<<<<< HEAD
   #if !defined(Z2_DIAG_PIN) && !defined(Z2_USE_ENDSTOP) && defined(Z2_STALL_SENSITIVITY) && ENABLED(Z_MULTI_ENDSTOPS) && NUM_Z_STEPPER_DRIVERS >= 2 && _PEXI(Z2_E_INDEX, DIAG)
+=======
+  #if !defined(Z2_DIAG_PIN) && !defined(Z2_USE_ENDSTOP) && defined(Z2_STALL_SENSITIVITY) && ENABLED(Z_MULTI_ENDSTOPS) && _PEXI(Z2_E_INDEX, DIAG)
+>>>>>>> bugfix-2.0.x
     #define Z2_DIAG_PIN _EPIN(Z2_E_INDEX, DIAG)
     #if   DIAG_REMAPPED(Z2, X_MIN)
       #define Z2_USE_ENDSTOP _XMIN_
@@ -886,7 +921,11 @@
     #endif
   #endif
   // Auto-assign pins for stallGuard sensorless homing
+<<<<<<< HEAD
   #if !defined(Z3_DIAG_PIN) && !defined(Z3_USE_ENDSTOP) && defined(Z3_STALL_SENSITIVITY) && ENABLED(Z_MULTI_ENDSTOPS) && NUM_Z_STEPPER_DRIVERS >= 3 && _PEXI(Z3_E_INDEX, DIAG)
+=======
+  #if !defined(Z3_DIAG_PIN) && !defined(Z3_USE_ENDSTOP) && defined(Z3_STALL_SENSITIVITY) && ENABLED(Z_MULTI_ENDSTOPS) && _PEXI(Z3_E_INDEX, DIAG)
+>>>>>>> bugfix-2.0.x
     #define Z3_DIAG_PIN _EPIN(Z3_E_INDEX, DIAG)
     #if   DIAG_REMAPPED(Z3, X_MIN)
       #define Z3_USE_ENDSTOP _XMIN_
@@ -971,7 +1010,11 @@
     #endif
   #endif
   // Auto-assign pins for stallGuard sensorless homing
+<<<<<<< HEAD
   #if !defined(Z4_DIAG_PIN) && !defined(Z4_USE_ENDSTOP) && defined(Z4_STALL_SENSITIVITY) && ENABLED(Z_MULTI_ENDSTOPS) && NUM_Z_STEPPER_DRIVERS >= 4 && _PEXI(Z4_E_INDEX, DIAG)
+=======
+  #if !defined(Z4_DIAG_PIN) && !defined(Z4_USE_ENDSTOP) && defined(Z4_STALL_SENSITIVITY) && ENABLED(Z_MULTI_ENDSTOPS) && _PEXI(Z4_E_INDEX, DIAG)
+>>>>>>> bugfix-2.0.x
     #define Z4_DIAG_PIN _EPIN(Z4_E_INDEX, DIAG)
     #if   DIAG_REMAPPED(Z4, X_MIN)
       #define Z4_USE_ENDSTOP _XMIN_
@@ -1034,6 +1077,7 @@
     #if PIN_EXISTS(I_MS1)
       #define AUTO_ASSIGNED_I_MS1 1
     #endif
+<<<<<<< HEAD
   #endif
   #ifndef I_MS2_PIN
     #define I_MS2_PIN    _EPIN(I_E_INDEX, MS2)
@@ -1055,6 +1099,29 @@
       #define I_SERIAL_RX_PIN _EPIN(I_E_INDEX, SERIAL_RX)
     #endif
   #endif
+=======
+  #endif
+  #ifndef I_MS2_PIN
+    #define I_MS2_PIN    _EPIN(I_E_INDEX, MS2)
+    #if PIN_EXISTS(I_MS2)
+      #define AUTO_ASSIGNED_I_MS2 1
+    #endif
+  #endif
+  #ifndef I_MS3_PIN
+    #define I_MS3_PIN    _EPIN(I_E_INDEX, MS3)
+    #if PIN_EXISTS(I_MS3)
+      #define AUTO_ASSIGNED_I_MS3 1
+    #endif
+  #endif
+  #if AXIS_HAS_UART(I)
+    #ifndef I_SERIAL_TX_PIN
+      #define I_SERIAL_TX_PIN _EPIN(I_E_INDEX, SERIAL_TX)
+    #endif
+    #ifndef I_SERIAL_RX_PIN
+      #define I_SERIAL_RX_PIN _EPIN(I_E_INDEX, SERIAL_RX)
+    #endif
+  #endif
+>>>>>>> bugfix-2.0.x
   // Auto-assign pins for stallGuard sensorless homing
   #if !defined(I_DIAG_PIN) && !defined(I_USE_ENDSTOP) && defined(I_STALL_SENSITIVITY) && _PEXI(I_E_INDEX, DIAG)
     #define I_DIAG_PIN _EPIN(I_E_INDEX, DIAG)
@@ -1366,7 +1433,11 @@
 //
 // Default DOGLCD SPI delays
 //
+<<<<<<< HEAD
 #if DISABLED(U8GLIB_ST7920)
+=======
+#if !IS_U8GLIB_ST7920
+>>>>>>> bugfix-2.0.x
   #undef ST7920_DELAY_1
   #undef ST7920_DELAY_2
   #undef ST7920_DELAY_3

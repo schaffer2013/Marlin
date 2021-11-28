@@ -52,26 +52,42 @@ void DGUSRxHandler::ScreenChange(DGUS_VP &vp, void *data_ptr) {
       #endif
 
       if (!ExtUI::isMediaInserted()) {
+<<<<<<< HEAD
         dgus_screen_handler.SetStatusMessagePGM(GET_TEXT(MSG_NO_MEDIA));
+=======
+        dgus_screen_handler.SetStatusMessage(GET_TEXT_F(MSG_NO_MEDIA));
+>>>>>>> bugfix-2.0.x
         return;
       }
 
       card.cdroot();
     #else
+<<<<<<< HEAD
       dgus_screen_handler.SetStatusMessagePGM(GET_TEXT(MSG_NO_MEDIA));
+=======
+      dgus_screen_handler.SetStatusMessage(GET_TEXT_F(MSG_NO_MEDIA));
+>>>>>>> bugfix-2.0.x
       return;
     #endif
   }
 
   if (vp.addr == DGUS_Addr::SCREENCHANGE_Idle
       && (ExtUI::isPrinting() || ExtUI::isPrintingPaused())) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(PSTR("Impossible while printing"));
+=======
+    dgus_screen_handler.SetStatusMessage(F("Impossible while printing"));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
   if (vp.addr == DGUS_Addr::SCREENCHANGE_Printing
       && (!ExtUI::isPrinting() && !ExtUI::isPrintingPaused())) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(PSTR("Impossible while idle"));
+=======
+    dgus_screen_handler.SetStatusMessage(F("Impossible while idle"));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
@@ -139,7 +155,11 @@ void DGUSRxHandler::ScreenChange(DGUS_VP &vp, void *data_ptr) {
     UNUSED(data_ptr);
 
     if (dgus_screen_handler.filelist_selected < 0) {
+<<<<<<< HEAD
       dgus_screen_handler.SetStatusMessagePGM(PSTR("No file selected"));
+=======
+      dgus_screen_handler.SetStatusMessage(F("No file selected"));
+>>>>>>> bugfix-2.0.x
       return;
     }
 
@@ -149,7 +169,11 @@ void DGUSRxHandler::ScreenChange(DGUS_VP &vp, void *data_ptr) {
     }
 
     if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
       dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+      dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
       return;
     }
 
@@ -207,7 +231,11 @@ void DGUSRxHandler::PrintResume(DGUS_VP &vp, void *data_ptr) {
   }
 
   if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
@@ -327,7 +355,11 @@ void DGUSRxHandler::TempTarget(DGUS_VP &vp, void *data_ptr) {
     case DGUS_Addr::TEMP_SetTarget_H0:
       ExtUI::setTargetTemp_celsius(temp, ExtUI::H0);
       break;
+<<<<<<< HEAD
     #if HOTENDS > 1
+=======
+    #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x
       case DGUS_Addr::TEMP_SetTarget_H1:
         ExtUI::setTargetTemp_celsius(temp, ExtUI::H1);
         break;
@@ -347,7 +379,11 @@ void DGUSRxHandler::TempCool(DGUS_VP &vp, void *data_ptr) {
     case DGUS_Data::Heater::ALL:
       ExtUI::setTargetTemp_celsius(0, ExtUI::BED);
       ExtUI::setTargetTemp_celsius(0, ExtUI::H0);
+<<<<<<< HEAD
       #if HOTENDS > 1
+=======
+      #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x
         ExtUI::setTargetTemp_celsius(0, ExtUI::H1);
       #endif
       break;
@@ -357,14 +393,22 @@ void DGUSRxHandler::TempCool(DGUS_VP &vp, void *data_ptr) {
     case DGUS_Data::Heater::H0:
       ExtUI::setTargetTemp_celsius(0, ExtUI::H0);
       break;
+<<<<<<< HEAD
     #if HOTENDS > 1
+=======
+    #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x
       case DGUS_Data::Heater::H1:
         ExtUI::setTargetTemp_celsius(0, ExtUI::H1);
         break;
     #endif
   }
 
+<<<<<<< HEAD
   dgus_screen_handler.SetStatusMessagePGM(PSTR("Cooling..."));
+=======
+  dgus_screen_handler.SetStatusMessage(F("Cooling..."));
+>>>>>>> bugfix-2.0.x
 
   dgus_screen_handler.TriggerFullUpdate();
 }
@@ -390,12 +434,20 @@ void DGUSRxHandler::ZOffset(DGUS_VP &vp, void *data_ptr) {
   UNUSED(vp);
 
   if (!ExtUI::isAxisPositionKnown(ExtUI::Z)) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_HOMING_REQUIRED);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_HOMING_REQUIRED));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
   if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
@@ -414,12 +466,20 @@ void DGUSRxHandler::ZOffsetStep(DGUS_VP &vp, void *data_ptr) {
   UNUSED(vp);
 
   if (!ExtUI::isAxisPositionKnown(ExtUI::Z)) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_HOMING_REQUIRED);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_HOMING_REQUIRED));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
   if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
@@ -456,12 +516,20 @@ void DGUSRxHandler::MoveToPoint(DGUS_VP &vp, void *data_ptr) {
   UNUSED(vp);
 
   if (!ExtUI::isPositionKnown()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_HOMING_REQUIRED);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_HOMING_REQUIRED));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
   if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
@@ -506,26 +574,44 @@ void DGUSRxHandler::Probe(DGUS_VP &vp, void *data_ptr) {
   UNUSED(data_ptr);
 
   #if ENABLED(MESH_BED_LEVELING)
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_ABL_REQUIRED);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_ABL_REQUIRED));
+>>>>>>> bugfix-2.0.x
     return;
   #endif
 
   if (!ExtUI::isPositionKnown()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_HOMING_REQUIRED);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_HOMING_REQUIRED));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
   if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
   dgus_screen_handler.TriggerScreenChange(DGUS_Screen::LEVELING_PROBING);
 
   #if ENABLED(AUTO_BED_LEVELING_UBL)
+<<<<<<< HEAD
     queue.enqueue_now_P(PSTR("G29P1\nG29P3\nG29P5C"));
   #else
     queue.enqueue_now_P(PSTR("G29"));
+=======
+    queue.enqueue_now(F("G29P1\nG29P3\nG29P5C"));
+  #else
+    queue.enqueue_now(F("G29"));
+>>>>>>> bugfix-2.0.x
   #endif
   queue.enqueue_now_P(DGUS_CMD_EEPROM_SAVE);
 }
@@ -535,7 +621,11 @@ void DGUSRxHandler::DisableABL(DGUS_VP &vp, void *data_ptr) {
   UNUSED(data_ptr);
 
   if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
@@ -576,7 +666,11 @@ void DGUSRxHandler::FilamentMove(DGUS_VP &vp, void *data_ptr) {
   UNUSED(vp);
 
   if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
@@ -600,7 +694,11 @@ void DGUSRxHandler::FilamentMove(DGUS_VP &vp, void *data_ptr) {
   }
 
   if (ExtUI::getActualTemp_celsius(extruder) < (float)EXTRUDE_MINTEMP) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(PSTR("Temperature too low"));
+=======
+    dgus_screen_handler.SetStatusMessage(F("Temperature too low"));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
@@ -620,7 +718,11 @@ void DGUSRxHandler::Home(DGUS_VP &vp, void *data_ptr) {
   UNUSED(vp);
 
   if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
@@ -634,6 +736,7 @@ void DGUSRxHandler::Home(DGUS_VP &vp, void *data_ptr) {
 
   switch (axis) {
     case DGUS_Data::Axis::X_Y_Z:
+<<<<<<< HEAD
       queue.enqueue_now_P(PSTR("G28XYZ"));
       break;
     case DGUS_Data::Axis::X_Y:
@@ -641,6 +744,15 @@ void DGUSRxHandler::Home(DGUS_VP &vp, void *data_ptr) {
       break;
     case DGUS_Data::Axis::Z:
       queue.enqueue_now_P(PSTR("G28Z"));
+=======
+      queue.enqueue_now(F("G28XYZ"));
+      break;
+    case DGUS_Data::Axis::X_Y:
+      queue.enqueue_now(F("G28XY"));
+      break;
+    case DGUS_Data::Axis::Z:
+      queue.enqueue_now(F("G28Z"));
+>>>>>>> bugfix-2.0.x
       break;
   }
 }
@@ -664,7 +776,11 @@ void DGUSRxHandler::Move(DGUS_VP &vp, void *data_ptr) {
   }
 
   if (!ExtUI::isAxisPositionKnown(axis)) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_HOMING_REQUIRED);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_HOMING_REQUIRED));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
@@ -720,7 +836,11 @@ void DGUSRxHandler::MoveStep(DGUS_VP &vp, void *data_ptr) {
   }
 
   if (!ExtUI::isAxisPositionKnown(axis)) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_HOMING_REQUIRED);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_HOMING_REQUIRED));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
@@ -757,7 +877,11 @@ void DGUSRxHandler::GcodeExecute(DGUS_VP &vp, void *data_ptr) {
   }
 
   if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
@@ -780,11 +904,19 @@ void DGUSRxHandler::ResetEEPROM(DGUS_VP &vp, void *data_ptr) {
   }
 
   if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
     return;
   }
 
   queue.enqueue_now_P(PSTR("M502"));
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+    return;
+  }
+
+  queue.enqueue_now(F("M502"));
+>>>>>>> bugfix-2.0.x
   queue.enqueue_now_P(DGUS_CMD_EEPROM_SAVE);
 }
 
@@ -798,11 +930,19 @@ void DGUSRxHandler::SettingsExtra(DGUS_VP &vp, void *data_ptr) {
     case DGUS_Data::Extra::BUTTON1:
       #if ENABLED(BLTOUCH)
         if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
           dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
           return;
         }
 
         queue.enqueue_now_P(PSTR(DGUS_RESET_BLTOUCH));
+=======
+          dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+          return;
+        }
+
+        queue.enqueue_now(F(DGUS_RESET_BLTOUCH));
+>>>>>>> bugfix-2.0.x
       #else
         dgus_screen_handler.TriggerScreenChange(DGUS_Screen::INFOS);
       #endif
@@ -827,7 +967,11 @@ void DGUSRxHandler::PIDSelect(DGUS_VP &vp, void *data_ptr) {
       dgus_screen_handler.pid_heater = heater;
       break;
     case DGUS_Data::Heater::H0:
+<<<<<<< HEAD
     #if HOTENDS > 1
+=======
+    #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x
       case DGUS_Data::Heater::H1:
     #endif
       dgus_screen_handler.pid_temp = DGUS_PLA_TEMP_HOTEND;
@@ -844,7 +988,11 @@ void DGUSRxHandler::PIDSetTemp(DGUS_VP &vp, void *data_ptr) {
   UNUSED(vp);
 
   if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
@@ -858,7 +1006,11 @@ void DGUSRxHandler::PIDSetTemp(DGUS_VP &vp, void *data_ptr) {
     case DGUS_Data::Heater::H0:
       temp = constrain(temp, HEATER_0_MINTEMP, (HEATER_0_MAXTEMP - HOTEND_OVERSHOOT));
       break;
+<<<<<<< HEAD
     #if HOTENDS > 1
+=======
+    #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x
       case DGUS_Data::Heater::H1:
         temp = constrain(temp, HEATER_1_MINTEMP, (HEATER_1_MAXTEMP - HOTEND_OVERSHOOT));
         break;
@@ -875,7 +1027,11 @@ void DGUSRxHandler::PIDRun(DGUS_VP &vp, void *data_ptr) {
   UNUSED(data_ptr);
 
   if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
     dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+    dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
     return;
   }
 
@@ -889,7 +1045,11 @@ void DGUSRxHandler::PIDRun(DGUS_VP &vp, void *data_ptr) {
         heater = H_BED;
         break;
       #else
+<<<<<<< HEAD
         dgus_screen_handler.SetStatusMessagePGM(PSTR("Bed PID disabled"));
+=======
+        dgus_screen_handler.SetStatusMessage(F("Bed PID disabled"));
+>>>>>>> bugfix-2.0.x
         return;
       #endif
     case DGUS_Data::Heater::H0:
@@ -897,16 +1057,27 @@ void DGUSRxHandler::PIDRun(DGUS_VP &vp, void *data_ptr) {
         heater = H_E0;
         break;
       #else
+<<<<<<< HEAD
         dgus_screen_handler.SetStatusMessagePGM(PSTR("PID disabled"));
         return;
       #endif
     #if HOTENDS > 1
+=======
+        dgus_screen_handler.SetStatusMessage(F("PID disabled"));
+        return;
+      #endif
+    #if HAS_MULTI_HOTEND
+>>>>>>> bugfix-2.0.x
       case DGUS_Data::Heater::H1:
         #if ENABLED(PIDTEMP)
           heater = H_E1;
           break;
         #else
+<<<<<<< HEAD
           dgus_screen_handler.SetStatusMessagePGM(PSTR("PID disabled"));
+=======
+          dgus_screen_handler.SetStatusMessage(F("PID disabled"));
+>>>>>>> bugfix-2.0.x
           return;
         #endif
     #endif
@@ -936,13 +1107,21 @@ void DGUSRxHandler::PIDRun(DGUS_VP &vp, void *data_ptr) {
     }
 
     if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
       dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+      dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
       return;
     }
 
     dgus_screen_handler.TriggerScreenChange(DGUS_Screen::HOME);
 
+<<<<<<< HEAD
     queue.enqueue_now_P(PSTR("M1000C"));
+=======
+    queue.enqueue_now(F("M1000C"));
+>>>>>>> bugfix-2.0.x
   }
 
   void DGUSRxHandler::PowerLossResume(DGUS_VP &vp, void *data_ptr) {
@@ -955,18 +1134,30 @@ void DGUSRxHandler::PIDRun(DGUS_VP &vp, void *data_ptr) {
     }
 
     if (!dgus_screen_handler.IsPrinterIdle()) {
+<<<<<<< HEAD
       dgus_screen_handler.SetStatusMessagePGM(DGUS_MSG_BUSY);
+=======
+      dgus_screen_handler.SetStatusMessage(FPSTR(DGUS_MSG_BUSY));
+>>>>>>> bugfix-2.0.x
       return;
     }
 
     if (!recovery.valid()) {
+<<<<<<< HEAD
       dgus_screen_handler.SetStatusMessagePGM(PSTR("Invalid recovery data"));
+=======
+      dgus_screen_handler.SetStatusMessage(F("Invalid recovery data"));
+>>>>>>> bugfix-2.0.x
       return;
     }
 
     dgus_screen_handler.TriggerScreenChange(DGUS_Screen::PRINT_STATUS);
 
+<<<<<<< HEAD
     queue.enqueue_now_P(PSTR("M1000"));
+=======
+    queue.enqueue_now(F("M1000"));
+>>>>>>> bugfix-2.0.x
   }
 #endif // POWER_LOSS_RECOVERY
 

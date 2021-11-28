@@ -30,9 +30,17 @@
  * Substitutions are applied for the following characters when used
  * in menu items that call lcd_put_u8str_ind_P with an index:
  *
+<<<<<<< HEAD
  *   = displays  '0'....'10' for indexes 0 - 10
  *   ~ displays  '1'....'11' for indexes 0 - 10
  *   * displays 'E1'...'E11' for indexes 0 - 10 (By default. Uses LCD_FIRST_TOOL)
+=======
+ *   $ displays an inserted C-string
+ *   = displays  '0'....'10' for indexes 0 - 10
+ *   ~ displays  '1'....'11' for indexes 0 - 10
+ *   * displays 'E1'...'E11' for indexes 0 - 10 (By default. Uses LCD_FIRST_TOOL)
+ *   @ displays an axis name such as XYZUVW, or E for an extruder
+>>>>>>> bugfix-2.0.x
  */
 
 #define DISPLAY_CHARSET_ISO10646_PL
@@ -81,7 +89,11 @@ namespace Language_pl {
   LSTR MSG_SET_ORIGIN                     = _UxGT("Ustaw punkt zero");
   LSTR MSG_SELECT_ORIGIN                  = _UxGT("Wybierz punkt zero");
   LSTR MSG_LAST_VALUE_SP                  = _UxGT("Poprzednia wartość ");
+<<<<<<< HEAD
   #if PREHEAT_COUNT
+=======
+  #if HAS_PREHEAT
+>>>>>>> bugfix-2.0.x
     LSTR MSG_PREHEAT_1                    = _UxGT("Rozgrzej ") PREHEAT_1_LABEL;
     LSTR MSG_PREHEAT_1_H                  = _UxGT("Rozgrzej ") PREHEAT_1_LABEL " ~";
     LSTR MSG_PREHEAT_1_END                = _UxGT("Rozgrzej ") PREHEAT_1_LABEL _UxGT(" Dysza");
@@ -100,6 +112,7 @@ namespace Language_pl {
   #endif
   LSTR MSG_PREHEAT_CUSTOM                 = _UxGT("Rozgrzej własne ust.");
   LSTR MSG_COOLDOWN                       = _UxGT("Chłodzenie");
+<<<<<<< HEAD
 
   LSTR MSG_CUTTER_FREQUENCY               = _UxGT("Częstotliwość");
   LSTR MSG_LASER_MENU                     = _UxGT("Sterowanie Lasera");
@@ -282,6 +295,189 @@ namespace Language_pl {
   LSTR MSG_VE_JERK                        = _UxGT("Zryw Ve");
   LSTR MSG_VELOCITY                       = _UxGT("Prędkość (V)");
 
+=======
+
+  LSTR MSG_CUTTER_FREQUENCY               = _UxGT("Częstotliwość");
+  LSTR MSG_LASER_MENU                     = _UxGT("Sterowanie Lasera");
+  LSTR MSG_SPINDLE_MENU                   = _UxGT("Sterowanie wrzeciona");
+  LSTR MSG_LASER_POWER                    = _UxGT("Zasilanie Lasera");
+  LSTR MSG_SPINDLE_POWER                  = _UxGT("Zasilanie wrzeciona");
+  LSTR MSG_SPINDLE_REVERSE                = _UxGT("Rewers wrzeciona");
+  LSTR MSG_SWITCH_PS_ON                   = _UxGT("Włącz zasilacz");
+  LSTR MSG_SWITCH_PS_OFF                  = _UxGT("Wyłącz zasilacz");
+  LSTR MSG_EXTRUDE                        = _UxGT("Ekstruzja");
+  LSTR MSG_RETRACT                        = _UxGT("Wycofanie");
+  LSTR MSG_MOVE_AXIS                      = _UxGT("Ruch osi");
+  LSTR MSG_BED_LEVELING                   = _UxGT("Poziomowanie stołu");
+  LSTR MSG_LEVEL_BED                      = _UxGT("Wypoziomuj stół");
+  LSTR MSG_BED_TRAMMING                   = _UxGT("Narożniki poziomowania");
+  LSTR MSG_NEXT_CORNER                    = _UxGT("Nastepny narożnik");
+  LSTR MSG_MESH_EDITOR                    = _UxGT("Edytor siatki");
+  LSTR MSG_EDIT_MESH                      = _UxGT("Edycja siatki");
+  LSTR MSG_EDITING_STOPPED                = _UxGT("Edycja siatki zatrzymana");
+  LSTR MSG_PROBING_POINT                  = _UxGT("Punkt pomiarowy");
+  LSTR MSG_MESH_X                         = _UxGT("Indeks X");
+  LSTR MSG_MESH_Y                         = _UxGT("Indeks Y");
+  LSTR MSG_MESH_EDIT_Z                    = _UxGT("Wartość Z");
+  LSTR MSG_CUSTOM_COMMANDS                = _UxGT("Własne Polecenia");
+  LSTR MSG_M48_TEST                       = _UxGT("M48 Test sondy");
+  LSTR MSG_M48_POINT                      = _UxGT("M48 Punky");
+  LSTR MSG_M48_DEVIATION                  = _UxGT("Odchylenie");
+  LSTR MSG_IDEX_MENU                      = _UxGT("Tryb IDEX");
+  LSTR MSG_OFFSETS_MENU                   = _UxGT("Przesunięcie narzędzia");
+  LSTR MSG_IDEX_MODE_AUTOPARK             = _UxGT("Auto-Parkowanie");
+  LSTR MSG_IDEX_MODE_DUPLICATE            = _UxGT("Duplikowanie");
+  LSTR MSG_IDEX_MODE_MIRRORED_COPY        = _UxGT("Kopia lustrzana");
+  LSTR MSG_IDEX_MODE_FULL_CTRL            = _UxGT("Pełne sterowanie");
+  LSTR MSG_HOTEND_OFFSET_Z                = _UxGT("2ga dysza Z");
+  LSTR MSG_HOTEND_OFFSET_A                = _UxGT("2ga dysza @");
+  LSTR MSG_UBL_DOING_G29                  = _UxGT("Wykonywanie G29");
+  LSTR MSG_UBL_TOOLS                      = _UxGT("Narzędzia UBL");
+  LSTR MSG_LCD_TILTING_MESH               = _UxGT("Punkt pochylenia");
+  LSTR MSG_UBL_MANUAL_MESH                = _UxGT("Ręczne Budowanie Siatki");
+  LSTR MSG_UBL_BC_INSERT                  = _UxGT("Umieść podkładkę i zmierz");
+  LSTR MSG_UBL_BC_INSERT2                 = _UxGT("Zmierz");
+  LSTR MSG_UBL_BC_REMOVE                  = _UxGT("Usuń & Zmierz Stół");
+  LSTR MSG_UBL_MOVING_TO_NEXT             = _UxGT("Przesuwanie do następnego");
+  LSTR MSG_UBL_ACTIVATE_MESH              = _UxGT("Aktywacja UBL");
+  LSTR MSG_UBL_DEACTIVATE_MESH            = _UxGT("Dezaktywacja UBL");
+  LSTR MSG_UBL_SET_TEMP_BED               = _UxGT("Temperatura stołu");
+  LSTR MSG_UBL_BED_TEMP_CUSTOM            = _UxGT("Temperatura stołu");
+  LSTR MSG_UBL_SET_TEMP_HOTEND            = _UxGT("Temperatura dyszy");
+  LSTR MSG_UBL_HOTEND_TEMP_CUSTOM         = _UxGT("Temperatura dyszy");
+  LSTR MSG_UBL_MESH_EDIT                  = _UxGT("Edycja siatki");
+  LSTR MSG_UBL_EDIT_CUSTOM_MESH           = _UxGT("Edycja własnej siatki");
+  LSTR MSG_UBL_FINE_TUNE_MESH             = _UxGT("Dostrajanie siatki");
+  LSTR MSG_UBL_DONE_EDITING_MESH          = _UxGT("Koniec edycji siati");
+  LSTR MSG_UBL_BUILD_CUSTOM_MESH          = _UxGT("Buduj własna siatkę");
+  LSTR MSG_UBL_BUILD_MESH_MENU            = _UxGT("Buduj siatkę");
+  LSTR MSG_UBL_BUILD_MESH_M               = _UxGT("Buduj siatkę ($)");
+  LSTR MSG_UBL_BUILD_COLD_MESH            = _UxGT("Buduj siatkę na zimno");
+  LSTR MSG_UBL_MESH_HEIGHT_ADJUST         = _UxGT("Dostrojenie wysokości siatki");
+  LSTR MSG_UBL_MESH_HEIGHT_AMOUNT         = _UxGT("Wartość wysokości");
+  LSTR MSG_UBL_VALIDATE_MESH_MENU         = _UxGT("Sprawdzenie siatki");
+  LSTR MSG_UBL_VALIDATE_MESH_M            = _UxGT("Sprawdzenie siatki ($)");
+  LSTR MSG_UBL_VALIDATE_CUSTOM_MESH       = _UxGT("Sprawdzenie własnej siatki");
+  LSTR MSG_G26_HEATING_BED                = _UxGT("G26 Nagrzewanie stołu");
+  LSTR MSG_G26_HEATING_NOZZLE             = _UxGT("G26 Nagrzewanie dyszy");
+  LSTR MSG_G26_MANUAL_PRIME               = _UxGT("Napełnianie ręczne...");
+  LSTR MSG_G26_FIXED_LENGTH               = _UxGT("Napełnij kreśloną długością");
+  LSTR MSG_G26_PRIME_DONE                 = _UxGT("Napełnianie zakończone");
+  LSTR MSG_G26_CANCELED                   = _UxGT("G26 Przewane");
+  LSTR MSG_G26_LEAVING                    = _UxGT("Opuszczanie G26");
+  LSTR MSG_UBL_CONTINUE_MESH              = _UxGT("Kontynuuj tworzenie siatki");
+  LSTR MSG_UBL_MESH_LEVELING              = _UxGT("Poziomowanie siatką");
+  LSTR MSG_UBL_3POINT_MESH_LEVELING       = _UxGT("Poziomowaie 3-punktowe");
+  LSTR MSG_UBL_GRID_MESH_LEVELING         = _UxGT("Poziomowaie według siatki");
+  LSTR MSG_UBL_MESH_LEVEL                 = _UxGT("Poziomuj siatkę");
+  LSTR MSG_UBL_SIDE_POINTS                = _UxGT("Punkty boczne");
+  LSTR MSG_UBL_MAP_TYPE                   = _UxGT("Rodzaj mapy");
+  LSTR MSG_UBL_OUTPUT_MAP                 = _UxGT("Wyslij mapę siatki");
+  LSTR MSG_UBL_OUTPUT_MAP_HOST            = _UxGT("Wyslij do Hosta");
+  LSTR MSG_UBL_OUTPUT_MAP_CSV             = _UxGT("Wyslij do CSV");
+  LSTR MSG_UBL_OUTPUT_MAP_BACKUP          = _UxGT("Kopia poza drukarką");
+  LSTR MSG_UBL_INFO_UBL                   = _UxGT("Wyslij info UBL");
+  LSTR MSG_UBL_FILLIN_AMOUNT              = _UxGT("Stopień wypełnienia");
+  LSTR MSG_UBL_MANUAL_FILLIN              = _UxGT("Ręczne wypełnienie");
+  LSTR MSG_UBL_SMART_FILLIN               = _UxGT("Inteligentne wypełnienie");
+  LSTR MSG_UBL_FILLIN_MESH                = _UxGT("Wypełnienie siatki");
+  LSTR MSG_UBL_INVALIDATE_ALL             = _UxGT("Unieważnij wszystko");
+  LSTR MSG_UBL_INVALIDATE_CLOSEST         = _UxGT("Unieważnij najbliższy");
+  LSTR MSG_UBL_FINE_TUNE_ALL              = _UxGT("Dostrajaj wszystko");
+  LSTR MSG_UBL_FINE_TUNE_CLOSEST          = _UxGT("Dostrajaj najbliższy");
+  LSTR MSG_UBL_STORAGE_MESH_MENU          = _UxGT("Przechowywanie siatki");
+  LSTR MSG_UBL_STORAGE_SLOT               = _UxGT("Slot Pamięci");
+  LSTR MSG_UBL_LOAD_MESH                  = _UxGT("Załaduj siatkę stołu");
+  LSTR MSG_UBL_SAVE_MESH                  = _UxGT("Zapisz siatkę stołu");
+  LSTR MSG_MESH_LOADED                    = _UxGT("Siatka %i załadowana");
+  LSTR MSG_MESH_SAVED                     = _UxGT("Siatka %i zapisana");
+  LSTR MSG_UBL_NO_STORAGE                 = _UxGT("Brak magazynu");
+  LSTR MSG_UBL_SAVE_ERROR                 = _UxGT("Błąd: Zapis UBL");
+  LSTR MSG_UBL_RESTORE_ERROR              = _UxGT("Bład: Odczyt UBL");
+  LSTR MSG_UBL_Z_OFFSET                   = _UxGT("Przesunięcie Z: ");
+  LSTR MSG_UBL_Z_OFFSET_STOPPED           = _UxGT("Przesunięcie Z zatrzymane");
+  LSTR MSG_UBL_STEP_BY_STEP_MENU          = _UxGT("UBL Krok po kroku");
+  LSTR MSG_UBL_1_BUILD_COLD_MESH          = _UxGT("1. Tworzenie zimnej siatki");
+  LSTR MSG_UBL_2_SMART_FILLIN             = _UxGT("2. Inteligentne wypełnienie");
+  LSTR MSG_UBL_3_VALIDATE_MESH_MENU       = _UxGT("3. Sprawdzenie siatki");
+  LSTR MSG_UBL_4_FINE_TUNE_ALL            = _UxGT("4. Dostrojenie wszystkiego");
+  LSTR MSG_UBL_5_VALIDATE_MESH_MENU       = _UxGT("5. Sprawdzenie siatki");
+  LSTR MSG_UBL_6_FINE_TUNE_ALL            = _UxGT("6. Dostrojenie wszystkiego");
+  LSTR MSG_UBL_7_SAVE_MESH                = _UxGT("7. Zapis siatki stołu");
+
+  LSTR MSG_LED_CONTROL                    = _UxGT("Sterowanie LED");
+  LSTR MSG_LEDS                           = _UxGT("Światła");
+  LSTR MSG_LED_PRESETS                    = _UxGT("Ustawienia świateł");
+  LSTR MSG_SET_LEDS_RED                   = _UxGT("Czerwony");
+  LSTR MSG_SET_LEDS_ORANGE                = _UxGT("Pomarańczowy");
+  LSTR MSG_SET_LEDS_YELLOW                = _UxGT("Zółty");
+  LSTR MSG_SET_LEDS_GREEN                 = _UxGT("Zielony");
+  LSTR MSG_SET_LEDS_BLUE                  = _UxGT("Niebieski");
+  LSTR MSG_SET_LEDS_INDIGO                = _UxGT("Indygo");
+  LSTR MSG_SET_LEDS_VIOLET                = _UxGT("Fioletowy");
+  LSTR MSG_SET_LEDS_WHITE                 = _UxGT("Biały");
+  LSTR MSG_SET_LEDS_DEFAULT               = _UxGT("Domyślny");
+  LSTR MSG_LED_CHANNEL_N                  = _UxGT("Kanał =");
+  LSTR MSG_NEO2_BRIGHTNESS                = _UxGT("Jasność");
+  LSTR MSG_CUSTOM_LEDS                    = _UxGT("Własne światła");
+  LSTR MSG_INTENSITY_R                    = _UxGT("Czerwony");
+  LSTR MSG_INTENSITY_G                    = _UxGT("Zielony");
+  LSTR MSG_INTENSITY_B                    = _UxGT("Niebieski");
+  LSTR MSG_INTENSITY_W                    = _UxGT("Biały");
+  LSTR MSG_LED_BRIGHTNESS                 = _UxGT("Jasność");
+
+  LSTR MSG_MOVING                         = _UxGT("Ruch...");
+  LSTR MSG_FREE_XY                        = _UxGT("Swobodne XY");
+  LSTR MSG_MOVE_X                         = _UxGT("Przesuń w X");
+  LSTR MSG_MOVE_Y                         = _UxGT("Przesuń w Y");
+  LSTR MSG_MOVE_Z                         = _UxGT("Przesuń w Z");
+  LSTR MSG_MOVE_E                         = _UxGT("Ekstruzja (os E)");
+  LSTR MSG_MOVE_EN                        = _UxGT("Ekstruzja (os E) *");
+  LSTR MSG_HOTEND_TOO_COLD                = _UxGT("Dysza za zimna");
+  LSTR MSG_MOVE_N_MM                      = _UxGT("Przesuń co %s mm");
+  LSTR MSG_MOVE_01MM                      = _UxGT("Przesuń co .1 mm");
+  LSTR MSG_MOVE_1MM                       = _UxGT("Przesuń co 1 mm");
+  LSTR MSG_MOVE_10MM                      = _UxGT("Przesuń co 10 mm");
+  LSTR MSG_MOVE_100MM                     = _UxGT("Przesuń co 100 mm");
+  LSTR MSG_MOVE_0001IN                    = _UxGT("Przesuń co 0.001 cala");
+  LSTR MSG_MOVE_001IN                     = _UxGT("Przesuń co 0.01 cala");
+  LSTR MSG_MOVE_01IN                      = _UxGT("Przesuń co 0.1 cala");
+  LSTR MSG_SPEED                          = _UxGT("Predkość");
+  LSTR MSG_BED_Z                          = _UxGT("Stół Z");
+  LSTR MSG_NOZZLE                         = _UxGT("Dysza");
+  LSTR MSG_NOZZLE_N                       = _UxGT("Dysza ~");
+  LSTR MSG_NOZZLE_STANDBY                 = _UxGT("Dysza w oczekiwaniu");
+  LSTR MSG_BED                            = _UxGT("Stół");
+  LSTR MSG_CHAMBER                        = _UxGT("Obudowa");
+  LSTR MSG_FAN_SPEED                      = _UxGT("Obroty wentylatora");
+  LSTR MSG_FAN_SPEED_N                    = _UxGT("Obroty wentylatora ~");
+  LSTR MSG_EXTRA_FAN_SPEED                = _UxGT("Obroty dodatkowego wentylatora");
+  LSTR MSG_EXTRA_FAN_SPEED_N              = _UxGT("Obroty dodatkowego wentylatora ~");
+  LSTR MSG_CONTROLLER_FAN                 = _UxGT("Wentylator kontrolera");
+  LSTR MSG_FLOW                           = _UxGT("Przepływ");
+  LSTR MSG_FLOW_N                         = _UxGT("Przepływ ~");
+  LSTR MSG_CONTROL                        = _UxGT("Ustawienia");
+  LSTR MSG_FACTOR                         = " " LCD_STR_THERMOMETER _UxGT(" Mnożnik");
+  LSTR MSG_AUTOTEMP                       = _UxGT("Auto. temperatura");
+  LSTR MSG_LCD_ON                         = _UxGT("Wł.");
+  LSTR MSG_LCD_OFF                        = _UxGT("Wył.");
+  LSTR MSG_PID_AUTOTUNE                   = _UxGT("PID Autostrojenie");
+  LSTR MSG_PID_AUTOTUNE_E                 = _UxGT("PID Autostrojenie *");
+  LSTR MSG_PID_AUTOTUNE_DONE              = _UxGT("Strojenie PID zakończone");
+  LSTR MSG_SELECT                         = _UxGT("Wybierz");
+  LSTR MSG_SELECT_E                       = _UxGT("Wybierz *");
+  LSTR MSG_ACC                            = _UxGT("Przyspieszenie");
+  LSTR MSG_JERK                           = _UxGT("Zryw");
+  LSTR MSG_VA_JERK                        = _UxGT("Zryw V") LCD_STR_A;
+  LSTR MSG_VB_JERK                        = _UxGT("Zryw V") LCD_STR_B;
+  LSTR MSG_VC_JERK                        = _UxGT("Zryw V") LCD_STR_C;
+  LSTR MSG_VI_JERK                        = _UxGT("Zryw V") LCD_STR_I;
+  LSTR MSG_VJ_JERK                        = _UxGT("Zryw V") LCD_STR_J;
+  LSTR MSG_VK_JERK                        = _UxGT("Zryw V") LCD_STR_K;
+  LSTR MSG_VE_JERK                        = _UxGT("Zryw Ve");
+  LSTR MSG_VELOCITY                       = _UxGT("Prędkość (V)");
+
+>>>>>>> bugfix-2.0.x
   LSTR MSG_VTRAV_MIN                      = _UxGT("Vskok min");
   LSTR MSG_ACCELERATION                   = _UxGT("Przyspieszenie (A)");
 

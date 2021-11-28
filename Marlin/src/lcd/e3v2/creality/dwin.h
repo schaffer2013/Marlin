@@ -31,6 +31,7 @@
 
 #include "../../../inc/MarlinConfigPre.h"
 
+<<<<<<< HEAD
 #if ANY(HAS_HOTEND, HAS_HEATED_BED, HAS_FAN) && PREHEAT_COUNT
   #define HAS_PREHEAT 1
   #if PREHEAT_COUNT < 2
@@ -38,6 +39,8 @@
   #endif
 #endif
 
+=======
+>>>>>>> bugfix-2.0.x
 enum processID : uint8_t {
   // Process ID
   MainMenu,
@@ -53,7 +56,13 @@ enum processID : uint8_t {
   Tune,
   #if HAS_PREHEAT
     PLAPreheat,
+<<<<<<< HEAD
     ABSPreheat,
+=======
+    #if PREHEAT_COUNT > 1
+      ABSPreheat,
+    #endif
+>>>>>>> bugfix-2.0.x
   #endif
   MaxSpeed,
   MaxSpeed_value,
@@ -244,8 +253,13 @@ void HMI_Init();
 void DWIN_Update();
 void EachMomentUpdate();
 void DWIN_HandleScreen();
+<<<<<<< HEAD
 void DWIN_StatusChanged(const char *text);
 void DWIN_StatusChanged_P(PGM_P const pstr);
+=======
+void DWIN_StatusChanged(const char * const cstr=nullptr);
+void DWIN_StatusChanged(FSTR_P const fstr);
+>>>>>>> bugfix-2.0.x
 
 inline void DWIN_StartHoming() { HMI_flag.home_flag = true; }
 

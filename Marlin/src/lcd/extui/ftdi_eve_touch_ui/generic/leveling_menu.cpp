@@ -125,11 +125,19 @@ bool LevelingMenu::onTouchEnd(uint8_t tag) {
     #if ENABLED(G26_MESH_VALIDATION)
       case 6:
         GOTO_SCREEN(StatusScreen);
+<<<<<<< HEAD:Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/leveling_menu.cpp
         injectCommands_P(PSTR("G28\nM117 Heating...\nG26 R X0 Y0\nG27"));
         break;
     #endif
     #if ENABLED(BLTOUCH)
       case 7: injectCommands_P(PSTR("M280 P0 S60")); break;
+=======
+        injectCommands(F("G28\nM117 Heating...\nG26 R X0 Y0\nG27"));
+        break;
+    #endif
+    #if ENABLED(BLTOUCH)
+      case 7: injectCommands(F("M280 P0 S60")); break;
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/ftdi_eve_touch_ui/screens/leveling_menu.cpp
       case 8: SpinnerDialogBox::enqueueAndWait(F("M280 P0 S90\nG4 P100\nM280 P0 S120")); break;
     #endif
     default: return false;

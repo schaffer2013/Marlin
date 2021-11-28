@@ -145,7 +145,11 @@ void GcodeSuite::M900() {
 }
 
 void GcodeSuite::M900_report(const bool forReplay/*=true*/) {
+<<<<<<< HEAD
   report_heading(forReplay, PSTR(STR_LINEAR_ADVANCE));
+=======
+  report_heading(forReplay, F(STR_LINEAR_ADVANCE));
+>>>>>>> bugfix-2.0.x
   #if EXTRUDERS < 2
     report_echo_start(forReplay);
     SERIAL_ECHOLNPGM("  M900 K", planner.extruder_advance_K[0]);

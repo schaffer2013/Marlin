@@ -32,7 +32,7 @@ template<typename TMC>
 void tmc_say_stealth_status(TMC &st) {
   st.printLabel();
   SERIAL_ECHOPGM(" driver mode:\t");
-  SERIAL_ECHOLNPGM_P(st.get_stealthChop() ? PSTR("stealthChop") : PSTR("spreadCycle"));
+  SERIAL_ECHOLNF(st.get_stealthChop() ? F("stealthChop") : F("spreadCycle"));
 }
 template<typename TMC>
 void tmc_set_stealthChop(TMC &st, const bool enable) {
@@ -139,14 +139,24 @@ void GcodeSuite::M569() {
 }
 
 void GcodeSuite::M569_report(const bool forReplay/*=true*/) {
+<<<<<<< HEAD
   report_heading(forReplay, PSTR(STR_DRIVER_STEPPING_MODE));
 
   auto say_M569 = [](const bool forReplay, const char * const etc=nullptr, const bool eol=false) {
+=======
+  report_heading(forReplay, F(STR_DRIVER_STEPPING_MODE));
+
+  auto say_M569 = [](const bool forReplay, FSTR_P const etc=nullptr, const bool eol=false) {
+>>>>>>> bugfix-2.0.x
     if (!forReplay) SERIAL_ECHO_START();
     SERIAL_ECHOPGM("  M569 S1");
     if (etc) {
       SERIAL_CHAR(' ');
+<<<<<<< HEAD
       SERIAL_ECHOPGM_P(etc);
+=======
+      SERIAL_ECHOF(etc);
+>>>>>>> bugfix-2.0.x
     }
     if (eol) SERIAL_EOL();
   };
@@ -176,13 +186,18 @@ void GcodeSuite::M569_report(const bool forReplay/*=true*/) {
              chop_z2 = TERN0(Z2_HAS_STEALTHCHOP, stepperZ2.get_stored_stealthChop());
 
   if (chop_x2 || chop_y2 || chop_z2) {
+<<<<<<< HEAD
     say_M569(forReplay, PSTR("I1"));
+=======
+    say_M569(forReplay, F("I1"));
+>>>>>>> bugfix-2.0.x
     if (chop_x2) SERIAL_ECHOPGM_P(SP_X_STR);
     if (chop_y2) SERIAL_ECHOPGM_P(SP_Y_STR);
     if (chop_z2) SERIAL_ECHOPGM_P(SP_Z_STR);
     SERIAL_EOL();
   }
 
+<<<<<<< HEAD
   if (TERN0(Z3_HAS_STEALTHCHOP, stepperZ3.get_stored_stealthChop())) { say_M569(forReplay, PSTR("I2 Z"), true); }
   if (TERN0(Z4_HAS_STEALTHCHOP, stepperZ4.get_stored_stealthChop())) { say_M569(forReplay, PSTR("I3 Z"), true); }
 
@@ -198,6 +213,23 @@ void GcodeSuite::M569_report(const bool forReplay/*=true*/) {
   if (TERN0(E5_HAS_STEALTHCHOP, stepperE5.get_stored_stealthChop())) { say_M569(forReplay, PSTR("T5 E"), true); }
   if (TERN0(E6_HAS_STEALTHCHOP, stepperE6.get_stored_stealthChop())) { say_M569(forReplay, PSTR("T6 E"), true); }
   if (TERN0(E7_HAS_STEALTHCHOP, stepperE7.get_stored_stealthChop())) { say_M569(forReplay, PSTR("T7 E"), true); }
+=======
+  if (TERN0(Z3_HAS_STEALTHCHOP, stepperZ3.get_stored_stealthChop())) { say_M569(forReplay, F("I2 Z"), true); }
+  if (TERN0(Z4_HAS_STEALTHCHOP, stepperZ4.get_stored_stealthChop())) { say_M569(forReplay, F("I3 Z"), true); }
+
+  if (TERN0( I_HAS_STEALTHCHOP, stepperI.get_stored_stealthChop()))  { say_M569(forReplay, FPSTR(SP_I_STR), true); }
+  if (TERN0( J_HAS_STEALTHCHOP, stepperJ.get_stored_stealthChop()))  { say_M569(forReplay, FPSTR(SP_J_STR), true); }
+  if (TERN0( K_HAS_STEALTHCHOP, stepperK.get_stored_stealthChop()))  { say_M569(forReplay, FPSTR(SP_K_STR), true); }
+
+  if (TERN0(E0_HAS_STEALTHCHOP, stepperE0.get_stored_stealthChop())) { say_M569(forReplay, F("T0 E"), true); }
+  if (TERN0(E1_HAS_STEALTHCHOP, stepperE1.get_stored_stealthChop())) { say_M569(forReplay, F("T1 E"), true); }
+  if (TERN0(E2_HAS_STEALTHCHOP, stepperE2.get_stored_stealthChop())) { say_M569(forReplay, F("T2 E"), true); }
+  if (TERN0(E3_HAS_STEALTHCHOP, stepperE3.get_stored_stealthChop())) { say_M569(forReplay, F("T3 E"), true); }
+  if (TERN0(E4_HAS_STEALTHCHOP, stepperE4.get_stored_stealthChop())) { say_M569(forReplay, F("T4 E"), true); }
+  if (TERN0(E5_HAS_STEALTHCHOP, stepperE5.get_stored_stealthChop())) { say_M569(forReplay, F("T5 E"), true); }
+  if (TERN0(E6_HAS_STEALTHCHOP, stepperE6.get_stored_stealthChop())) { say_M569(forReplay, F("T6 E"), true); }
+  if (TERN0(E7_HAS_STEALTHCHOP, stepperE7.get_stored_stealthChop())) { say_M569(forReplay, F("T7 E"), true); }
+>>>>>>> bugfix-2.0.x
 }
 
 #endif // HAS_STEALTHCHOP

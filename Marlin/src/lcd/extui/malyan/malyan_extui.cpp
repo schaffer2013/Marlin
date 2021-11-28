@@ -55,6 +55,7 @@ namespace ExtUI {
     LCD_SERIAL.begin(LCD_BAUDRATE);
 
     // Signal init
+<<<<<<< HEAD
     write_to_lcd_P(PSTR("{SYS:STARTED}\r\n"));
 
     // send a version that says "unsupported"
@@ -62,6 +63,15 @@ namespace ExtUI {
 
     // No idea why it does this twice.
     write_to_lcd_P(PSTR("{SYS:STARTED}\r\n"));
+=======
+    write_to_lcd(F("{SYS:STARTED}\r\n"));
+
+    // send a version that says "unsupported"
+    write_to_lcd(F("{VER:99}\r\n"));
+
+    // No idea why it does this twice.
+    write_to_lcd(F("{SYS:STARTED}\r\n"));
+>>>>>>> bugfix-2.0.x
     update_usb_status(true);
   }
 
@@ -98,8 +108,13 @@ namespace ExtUI {
     #endif
   }
 
+<<<<<<< HEAD
   void onPrinterKilled(PGM_P const error, PGM_P const component) {
     set_lcd_error_P(error, component);
+=======
+  void onPrinterKilled(FSTR_P const error, FSTR_P const component) {
+    set_lcd_error(error, component);
+>>>>>>> bugfix-2.0.x
   }
 
   #if HAS_PID_HEATING
@@ -109,6 +124,7 @@ namespace ExtUI {
       //SERIAL_ECHOLNPGM("OnPidTuning:", rst);
       switch (rst) {
         case PID_STARTED:
+<<<<<<< HEAD
           set_lcd_error_P(GET_TEXT(MSG_PID_AUTOTUNE));
           break;
         case PID_BAD_EXTRUDER_NUM:
@@ -122,15 +138,36 @@ namespace ExtUI {
           break;
         case PID_DONE:
           set_lcd_error_P(GET_TEXT(MSG_PID_AUTOTUNE_DONE));
+=======
+          set_lcd_error(GET_TEXT_F(MSG_PID_AUTOTUNE));
+          break;
+        case PID_BAD_EXTRUDER_NUM:
+          set_lcd_error(GET_TEXT_F(MSG_PID_BAD_EXTRUDER_NUM));
+          break;
+        case PID_TEMP_TOO_HIGH:
+          set_lcd_error(GET_TEXT_F(MSG_PID_TEMP_TOO_HIGH));
+          break;
+        case PID_TUNING_TIMEOUT:
+          set_lcd_error(GET_TEXT_F(MSG_PID_TIMEOUT));
+          break;
+        case PID_DONE:
+          set_lcd_error(GET_TEXT_F(MSG_PID_AUTOTUNE_DONE));
+>>>>>>> bugfix-2.0.x
           break;
       }
     }
 
   #endif
 
+<<<<<<< HEAD
   void onPrintTimerStarted() { write_to_lcd_P(PSTR("{SYS:BUILD}")); }
   void onPrintTimerPaused() {}
   void onPrintTimerStopped() { write_to_lcd_P(PSTR("{TQ:100}")); }
+=======
+  void onPrintTimerStarted() { write_to_lcd(F("{SYS:BUILD}")); }
+  void onPrintTimerPaused() {}
+  void onPrintTimerStopped() { write_to_lcd(F("{TQ:100}")); }
+>>>>>>> bugfix-2.0.x
 
   // Not needed for Malyan LCD
   void onStatusChanged(const char * const) {}

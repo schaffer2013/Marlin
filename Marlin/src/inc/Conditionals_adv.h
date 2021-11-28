@@ -226,6 +226,7 @@
 #else
   #undef HEATER_1_MINTEMP
   #undef HEATER_1_MAXTEMP
+<<<<<<< HEAD
 #endif
 
 #if TEMP_SENSOR_REDUNDANT == -5 || TEMP_SENSOR_REDUNDANT == -3 || TEMP_SENSOR_REDUNDANT == -2
@@ -294,6 +295,76 @@
   #endif
 #endif
 
+=======
+#endif
+
+#if TEMP_SENSOR_REDUNDANT == -5 || TEMP_SENSOR_REDUNDANT == -3 || TEMP_SENSOR_REDUNDANT == -2
+  #define TEMP_SENSOR_REDUNDANT_IS_MAX_TC 1
+
+  #if TEMP_SENSOR_REDUNDANT == -5
+    #if !REDUNDANT_TEMP_MATCH(SOURCE, E0) && !REDUNDANT_TEMP_MATCH(SOURCE, E1)
+      #error "MAX31865 Thermocouples (-5) not supported for TEMP_SENSOR_REDUNDANT_SOURCE other than TEMP_SENSOR_0/TEMP_SENSOR_1 (0/1)."
+    #endif
+
+    #define TEMP_SENSOR_REDUNDANT_IS_MAX31865    1
+    #define TEMP_SENSOR_REDUNDANT_MAX_TC_TMIN    0
+    #define TEMP_SENSOR_REDUNDANT_MAX_TC_TMAX 1024
+  #elif TEMP_SENSOR_REDUNDANT == -3
+    #if !REDUNDANT_TEMP_MATCH(SOURCE, E0) && !REDUNDANT_TEMP_MATCH(SOURCE, E1)
+      #error "MAX31855 Thermocouples (-3) not supported for TEMP_SENSOR_REDUNDANT_SOURCE other than TEMP_SENSOR_0/TEMP_SENSOR_1 (0/1)."
+    #endif
+
+    #define TEMP_SENSOR_REDUNDANT_IS_MAX31855    1
+    #define TEMP_SENSOR_REDUNDANT_MAX_TC_TMIN -270
+    #define TEMP_SENSOR_REDUNDANT_MAX_TC_TMAX 1800
+  #elif TEMP_SENSOR_REDUNDANT == -2
+    #if !REDUNDANT_TEMP_MATCH(SOURCE, E0) && !REDUNDANT_TEMP_MATCH(SOURCE, E1)
+      #error "MAX6675 Thermocouples (-2) not supported for TEMP_SENSOR_REDUNDANT_SOURCE other than TEMP_SENSOR_0/TEMP_SENSOR_1 (0/1)."
+    #endif
+
+    #define TEMP_SENSOR_REDUNDANT_IS_MAX6675     1
+    #define TEMP_SENSOR_REDUNDANT_MAX_TC_TMIN    0
+    #define TEMP_SENSOR_REDUNDANT_MAX_TC_TMAX 1024
+  #endif
+
+  // mimic setting up the source TEMP_SENSOR
+  #if REDUNDANT_TEMP_MATCH(SOURCE, E0)
+    #define TEMP_SENSOR_0_MAX_TC_TMIN TEMP_SENSOR_REDUNDANT_MAX_TC_TMIN
+    #define TEMP_SENSOR_0_MAX_TC_TMAX TEMP_SENSOR_REDUNDANT_MAX_TC_TMAX
+    #ifndef MAX31865_SENSOR_WIRES_0
+      #define MAX31865_SENSOR_WIRES_0 2
+    #endif
+  #elif REDUNDANT_TEMP_MATCH(SOURCE, E1)
+    #define TEMP_SENSOR_1_MAX_TC_TMIN TEMP_SENSOR_REDUNDANT_MAX_TC_TMIN
+    #define TEMP_SENSOR_1_MAX_TC_TMAX TEMP_SENSOR_REDUNDANT_MAX_TC_TMAX
+    #ifndef MAX31865_SENSOR_WIRES_1
+      #define MAX31865_SENSOR_WIRES_1 2
+    #endif
+  #endif
+
+  #if (TEMP_SENSOR_0_IS_MAX_TC && TEMP_SENSOR_REDUNDANT != TEMP_SENSOR_0) || (TEMP_SENSOR_1_IS_MAX_TC && TEMP_SENSOR_REDUNDANT != TEMP_SENSOR_1)
+    #if   TEMP_SENSOR_REDUNDANT == -5
+      #error "If MAX31865 Thermocouple (-5) is used for TEMP_SENSOR_0/TEMP_SENSOR_1 then TEMP_SENSOR_REDUNDANT must match."
+    #elif TEMP_SENSOR_REDUNDANT == -3
+      #error "If MAX31855 Thermocouple (-3) is used for TEMP_SENSOR_0/TEMP_SENSOR_1 then TEMP_SENSOR_REDUNDANT must match."
+    #elif TEMP_SENSOR_REDUNDANT == -2
+      #error "If MAX6675 Thermocouple (-2) is used for TEMP_SENSOR_0/TEMP_SENSOR_1 then TEMP_SENSOR_REDUNDANT must match."
+    #endif
+  #endif
+#elif TEMP_SENSOR_REDUNDANT == -4
+  #define TEMP_SENSOR_REDUNDANT_IS_AD8495 1
+#elif TEMP_SENSOR_REDUNDANT == -1
+  #define TEMP_SENSOR_REDUNDANT_IS_AD595 1
+#elif TEMP_SENSOR_REDUNDANT > 0
+  #define TEMP_SENSOR_REDUNDANT_IS_THERMISTOR 1
+  #if TEMP_SENSOR_REDUNDANT == 1000
+    #define TEMP_SENSOR_REDUNDANT_IS_CUSTOM 1
+  #elif TEMP_SENSOR_REDUNDANT == 998 || TEMP_SENSOR_REDUNDANT == 999
+    #error "Dummy sensors are not supported for TEMP_SENSOR_REDUNDANT."
+  #endif
+#endif
+
+>>>>>>> bugfix-2.0.x
 #if TEMP_SENSOR_0_IS_MAX_TC || TEMP_SENSOR_1_IS_MAX_TC || TEMP_SENSOR_REDUNDANT_IS_MAX_TC
   #define HAS_MAX_TC 1
 #endif
@@ -550,6 +621,20 @@
   #endif
 #endif
 
+// Probe Temperature Compensation
+#if !TEMP_SENSOR_PROBE
+  #undef PTC_PROBE
+#endif
+#if !TEMP_SENSOR_BED
+  #undef PTC_BED
+#endif
+#if !HAS_EXTRUDERS
+  #undef PTC_HOTEND
+#endif
+#if ANY(PTC_PROBE, PTC_BED, PTC_HOTEND)
+  #define HAS_PTC 1
+#endif
+
 // Let SD_FINISHED_RELEASECOMMAND stand in for SD_FINISHED_STEPPERRELEASE
 #if ENABLED(SD_FINISHED_STEPPERRELEASE)
   #ifndef SD_FINISHED_RELEASECOMMAND
@@ -622,7 +707,9 @@
 #endif
 
 // Fallback Stepper Driver types that depend on Configuration_adv.h
-#if NONE(DUAL_X_CARRIAGE, X_DUAL_STEPPER_DRIVERS)
+#if EITHER(DUAL_X_CARRIAGE, X_DUAL_STEPPER_DRIVERS)
+  #define HAS_X2_STEPPER 1
+#else
   #undef X2_DRIVER_TYPE
 #endif
 #if DISABLED(Y_DUAL_STEPPER_DRIVERS)
@@ -698,6 +785,9 @@
   #endif
   #ifndef ACTION_ON_KILL
     #define ACTION_ON_KILL    "poweroff"
+  #endif
+  #ifndef SHUTDOWN_ACTION
+    #define SHUTDOWN_ACTION   "shutdown"
   #endif
   #if HAS_FILAMENT_SENSOR
     #ifndef ACTION_ON_FILAMENT_RUNOUT

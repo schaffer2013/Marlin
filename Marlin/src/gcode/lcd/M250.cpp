@@ -38,7 +38,11 @@ void GcodeSuite::M250() {
 }
 
 void GcodeSuite::M250_report(const bool forReplay/*=true*/) {
+<<<<<<< HEAD
   report_heading_etc(forReplay, PSTR(STR_LCD_CONTRAST));
+=======
+  report_heading_etc(forReplay, F(STR_LCD_CONTRAST));
+>>>>>>> bugfix-2.0.x
   SERIAL_ECHOLNPGM("  M250 C", ui.contrast);
 }
 

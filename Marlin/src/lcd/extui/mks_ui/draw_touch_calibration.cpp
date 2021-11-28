@@ -99,8 +99,12 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
   switch (obj->mks_obj_id) {
     case ID_TC_RETURN:
       TERN_(MKS_TEST, current_disp_ui = 1);
+<<<<<<< HEAD:Marlin/src/lcd/extui/mks_ui/draw_touch_calibration.cpp
       lv_clear_touch_calibration_screen();
       draw_return_ui();
+=======
+      goto_previous_ui();
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/mks_ui/draw_touch_calibration.cpp
       break;
   }
 }

@@ -154,11 +154,15 @@ void BedMeshViewScreen::onMeshUpdate(const int8_t x, const int8_t y, const ExtUI
 void BedMeshViewScreen::doProbe() {
   GOTO_SCREEN(BedMeshViewScreen);
   mydata.count = 0;
+<<<<<<< HEAD:Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/bed_mesh_view_screen.cpp
   injectCommands_P(PSTR(BED_LEVELING_COMMANDS));
+=======
+  injectCommands(F(BED_LEVELING_COMMANDS));
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/ftdi_eve_touch_ui/screens/bed_mesh_view_screen.cpp
 }
 
 void BedMeshViewScreen::show() {
-  injectCommands_P(PSTR("G29 L1"));
+  injectCommands(F("G29 L1"));
   GOTO_SCREEN(BedMeshViewScreen);
 }
 

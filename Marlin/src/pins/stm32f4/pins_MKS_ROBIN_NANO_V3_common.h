@@ -26,8 +26,12 @@
 // MKS Robin Nano V3, MKS Eagle pinmap
 //
 
+<<<<<<< HEAD
 // USB Flash Drive support
 #define HAS_OTG_USB_HOST_SUPPORT
+=======
+#define HAS_OTG_USB_HOST_SUPPORT                  // USB Flash Drive support
+>>>>>>> bugfix-2.0.x
 
 // Avoid conflict with TIMER_TONE
 #define STEP_TIMER                            10
@@ -336,7 +340,11 @@
     //#define MKS_LCD12864B
     //#undef SHOW_BOOTSCREEN
 
+<<<<<<< HEAD
   #elif ENABLED(MKS_MINI_12864_V3)
+=======
+  #elif ENABLED(FYSETC_MINI_12864_2_1)
+>>>>>>> bugfix-2.0.x
     #define DOGLCD_CS                EXP1_08_PIN
     #define DOGLCD_A0                EXP1_07_PIN
     #define LCD_PINS_DC                DOGLCD_A0

@@ -28,7 +28,11 @@
 #define BOARD_INFO_NAME "Melzi V2"
 
 // Alter timing for graphical display
+<<<<<<< HEAD
 #if ENABLED(U8GLIB_ST7920)
+=======
+#if IS_U8GLIB_ST7920
+>>>>>>> bugfix-2.0.x
   #define BOARD_ST7920_DELAY_1                 0
   #define BOARD_ST7920_DELAY_2               400
   #define BOARD_ST7920_DELAY_3                 0

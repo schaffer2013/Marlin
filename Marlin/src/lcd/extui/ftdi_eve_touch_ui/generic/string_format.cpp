@@ -27,8 +27,13 @@
 
 #define ROUND(val) uint16_t((val)+0.5)
 
+<<<<<<< HEAD:Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/string_format.cpp
 #if GCC_VERSION <= 50000
   #pragma GCC diagnostic push
+=======
+#pragma GCC diagnostic push
+#if GCC_VERSION <= 50000
+>>>>>>> bugfix-2.0.x:Marlin/src/lcd/extui/lib/ftdi_eve_touch_ui/screens/string_format.cpp
   #pragma GCC diagnostic ignored "-Wno-format"
 #endif
 

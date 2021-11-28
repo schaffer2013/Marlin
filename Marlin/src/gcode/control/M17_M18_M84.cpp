@@ -136,7 +136,11 @@ void GcodeSuite::M17() {
     }
   }
   else {
+<<<<<<< HEAD
     LCD_MESSAGEPGM(MSG_NO_MOVE);
+=======
+    LCD_MESSAGE(MSG_NO_MOVE);
+>>>>>>> bugfix-2.0.x
     stepper.enable_all_steppers();
   }
 }

@@ -26,6 +26,7 @@
 
 #include "../inc/MarlinConfigPre.h"
 
+<<<<<<< HEAD
 class __FlashStringHelper;
 typedef const __FlashStringHelper* FSTR_P;
 #ifndef FPSTR
@@ -33,6 +34,8 @@ typedef const __FlashStringHelper* FSTR_P;
 #endif
 #define FTOP(S) (reinterpret_cast<const char*>(S))
 
+=======
+>>>>>>> bugfix-2.0.x
 //
 // Conditional type assignment magic. For example...
 //
@@ -89,7 +92,11 @@ enum AxisEnum : uint8_t {
   #undef _EN_ITEM
 
   // Core also keeps toolhead directions
+<<<<<<< HEAD
   #if EITHER(IS_CORE, MARKFORGED_XY)
+=======
+  #if ANY(IS_CORE, MARKFORGED_XY, MARKFORGED_YX)
+>>>>>>> bugfix-2.0.x
     , X_HEAD, Y_HEAD, Z_HEAD
   #endif
 
@@ -418,10 +425,17 @@ struct XYZval {
   #endif
   #if LINEAR_AXES >= 5
     FI void set(const T px, const T py, const T pz, const T pi)             { x = px; y = py; z = pz; i = pi; }
+<<<<<<< HEAD
   #endif
   #if LINEAR_AXES >= 6
     FI void set(const T px, const T py, const T pz, const T pi, const T pj) { x = px; y = py; z = pz; i = pi; j = pj; }
   #endif
+=======
+  #endif
+  #if LINEAR_AXES >= 6
+    FI void set(const T px, const T py, const T pz, const T pi, const T pj) { x = px; y = py; z = pz; i = pi; j = pj; }
+  #endif
+>>>>>>> bugfix-2.0.x
 
   // Length reduced to one dimension
   FI T magnitude()                               const { return (T)sqrtf(LINEAR_AXIS_GANG(x*x, + y*y, + z*z, + i*i, + j*j, + k*k)); }

@@ -195,7 +195,7 @@ void GcodeSuite::M420() {
   // V to print the matrix or mesh
   if (seenV) {
     #if ABL_PLANAR
-      planner.bed_level_matrix.debug(PSTR("Bed Level Correction Matrix:"));
+      planner.bed_level_matrix.debug(F("Bed Level Correction Matrix:"));
     #else
       if (leveling_is_valid()) {
         #if ENABLED(AUTO_BED_LEVELING_BILINEAR)
@@ -243,6 +243,7 @@ void GcodeSuite::M420() {
 }
 
 void GcodeSuite::M420_report(const bool forReplay/*=true*/) {
+<<<<<<< HEAD
   report_heading_etc(forReplay, PSTR(
     TERN(MESH_BED_LEVELING, "Mesh Bed Leveling", TERN(AUTO_BED_LEVELING_UBL, "Unified Bed Leveling", "Auto Bed Leveling"))
   ));
@@ -252,6 +253,17 @@ void GcodeSuite::M420_report(const bool forReplay/*=true*/) {
       , SP_Z_STR, LINEAR_UNIT(planner.z_fade_height)
     #endif
     , PSTR(" ; Leveling ")
+=======
+  report_heading_etc(forReplay, F(
+    TERN(MESH_BED_LEVELING, "Mesh Bed Leveling", TERN(AUTO_BED_LEVELING_UBL, "Unified Bed Leveling", "Auto Bed Leveling"))
+  ));
+  SERIAL_ECHOF(
+    F("  M420 S"), planner.leveling_active
+    #if ENABLED(ENABLE_LEVELING_FADE_HEIGHT)
+      , FPSTR(SP_Z_STR), LINEAR_UNIT(planner.z_fade_height)
+    #endif
+    , F(" ; Leveling ")
+>>>>>>> bugfix-2.0.x
   );
   serialprintln_onoff(planner.leveling_active);
 }

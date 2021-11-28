@@ -54,7 +54,11 @@ namespace Language_ca {
   LSTR MSG_SET_HOME_OFFSETS               = _UxGT("Ajusta decalatge");
   LSTR MSG_HOME_OFFSETS_APPLIED           = _UxGT("Decalatge aplicat");
   LSTR MSG_SET_ORIGIN                     = _UxGT("Estableix origen");
+<<<<<<< HEAD
   #if PREHEAT_COUNT
+=======
+  #if HAS_PREHEAT
+>>>>>>> bugfix-2.0.x
     LSTR MSG_PREHEAT_1                    = _UxGT("Preescalfa ") PREHEAT_1_LABEL;
     LSTR MSG_PREHEAT_1_H                  = _UxGT("Preescalfa ") PREHEAT_1_LABEL " ~";
     LSTR MSG_PREHEAT_1_END                = _UxGT("Preescalfa ") PREHEAT_1_LABEL _UxGT(" End");
